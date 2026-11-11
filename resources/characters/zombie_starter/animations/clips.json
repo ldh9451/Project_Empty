@@ -1,0 +1,730 @@
+[
+  {
+    "hips_displacement_m": [
+      -0.0000143609941005707,
+      -0.0127415657043457,
+      -0.0013139620423317
+    ],
+    "loop": false,
+    "name": "MOB_Stand_to_Zombie_Idle_1_v2",
+    "seconds": 1.53333333333333,
+    "source": "source/Animation/In_Place/MOB_Stand_to_Zombie_Idle_1_v2_IPC.fbx",
+    "source_clip": "MOB_Stand_to_Zombie_Idle_1_v2_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      -0.0000000633299350738525,
+      -0.000000655651092529297,
+      0.0000000819563865661621
+    ],
+    "loop": true,
+    "name": "Zombie_Atk_Arms_3_SHORT_Loop",
+    "seconds": 1.7,
+    "source": "source/Animation/In_Place/Zombie_Atk_Arms_3_SHORT_Loop_IPC.fbx",
+    "source_clip": "Zombie_Atk_Arms_3_SHORT_Loop_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      0.00000000931322574615479,
+      0.0,
+      0.00000000745058059692383
+    ],
+    "loop": true,
+    "name": "Zombie_Atk_Loop_1",
+    "seconds": 6.4,
+    "source": "source/Animation/In_Place/Zombie_Atk_Loop_1_IPC.fbx",
+    "source_clip": "Zombie_Atk_Loop_1_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      0.00427513523027301,
+      -0.00269985198974609,
+      0.0300549827516079
+    ],
+    "loop": false,
+    "name": "Zombie_Chase_1_KnockBack_Chase",
+    "seconds": 4.93333333333333,
+    "source": "source/Animation/In_Place/Zombie_Chase_1_KnockBack_Chase_IPC.fbx",
+    "source_clip": "Zombie_Chase_1_KnockBack_Chase_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      -0.0000000190339051187038,
+      0.0000000596046447753906,
+      -0.0000000316649675369263
+    ],
+    "loop": true,
+    "name": "Zombie_Chase_1_Loop",
+    "seconds": 2.63333333333333,
+    "source": "source/Animation/In_Place/Zombie_Chase_1_Loop_IPC.fbx",
+    "source_clip": "Zombie_Chase_1_Loop_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      -0.00000108708627521992,
+      -0.000000894069671630859,
+      -0.00000768306199461222
+    ],
+    "loop": true,
+    "name": "Zombie_Crawl_1_Loop",
+    "seconds": 9.03333333333333,
+    "source": "source/Animation/In_Place/Zombie_Crawl_1_Loop_IPC.fbx",
+    "source_clip": "Zombie_Crawl_1_Loop_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      -0.00649010948836803,
+      -0.846861004829407,
+      0.0167995467782021
+    ],
+    "loop": false,
+    "name": "Zombie_Death_Back_Mid_1",
+    "seconds": 2.76666666666667,
+    "source": "source/Animation/In_Place/Zombie_Death_Back_Mid_1_IPC.fbx",
+    "source_clip": "Zombie_Death_Back_Mid_1_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      -0.0377158857882023,
+      -0.837993443012238,
+      0.0686097666621208
+    ],
+    "loop": false,
+    "name": "Zombie_Death_Hit_Back_1",
+    "seconds": 1.7,
+    "source": "source/Animation/In_Place/Zombie_Death_Hit_Back_1_IPC.fbx",
+    "source_clip": "Zombie_Death_Hit_Back_1_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      0.0000000819563865661621,
+      0.0,
+      0.0000000149011611938477
+    ],
+    "loop": true,
+    "name": "Zombie_HyperAttack_1_SHORT_Idle_Loop",
+    "seconds": 1.9,
+    "source": "source/Animation/In_Place/Zombie_HyperAttack_1_SHORT_Idle_Loop_IPC.fbx",
+    "source_clip": "Zombie_HyperAttack_1_SHORT_Idle_Loop_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      0.000000597909092903137,
+      -0.00000542402267456055,
+      0.000000566244125366211
+    ],
+    "loop": true,
+    "name": "Zombie_HyperAttack_1_SHORT_Loop",
+    "seconds": 2.2,
+    "source": "source/Animation/In_Place/Zombie_HyperAttack_1_SHORT_Loop_IPC.fbx",
+    "source_clip": "Zombie_HyperAttack_1_SHORT_Loop_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      -0.000000208616256713867,
+      0.00000542402267456055,
+      0.000000130385160446167
+    ],
+    "loop": true,
+    "name": "Zombie_HyperChase_1_Loop",
+    "seconds": 1.9,
+    "source": "source/Animation/In_Place/Zombie_HyperChase_1_Loop_IPC.fbx",
+    "source_clip": "Zombie_HyperChase_1_Loop_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      0.0000000204890966415405,
+      -0.000000238418579101563,
+      -0.0000000372529029846191
+    ],
+    "loop": true,
+    "name": "Zombie_Idle_1_v2",
+    "seconds": 12.5,
+    "source": "source/Animation/In_Place/Zombie_Idle_1_v2_IPC.fbx",
+    "source_clip": "Zombie_Idle_1_v2_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      0.0000144783407449722,
+      0.0127409696578979,
+      0.00131396949291229
+    ],
+    "loop": false,
+    "name": "Zombie_Idle_1_v2_to_MOB_Stand",
+    "seconds": 1.53333333333333,
+    "source": "source/Animation/In_Place/Zombie_Idle_1_v2_to_MOB_Stand_IPC.fbx",
+    "source_clip": "Zombie_Idle_1_v2_to_MOB_Stand_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      0.00000123679637908936,
+      0.0000182986259460449,
+      0.000000327825546264648
+    ],
+    "loop": true,
+    "name": "Zombie_Idle_2",
+    "seconds": 13.6666666666667,
+    "source": "source/Animation/In_Place/Zombie_Idle_2_IPC.fbx",
+    "source_clip": "Zombie_Idle_2_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      -0.12125950306654,
+      -0.822025537490845,
+      -0.10205116122961
+    ],
+    "loop": false,
+    "name": "Zombie_OnFire_2A_SHORT",
+    "seconds": 4.13333333333333,
+    "source": "source/Animation/In_Place/Zombie_OnFire_2A_SHORT_IPC.fbx",
+    "source_clip": "Zombie_OnFire_2A_SHORT_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      0.000000205356627702713,
+      0.00000131130218505859,
+      0.000000804662704467773
+    ],
+    "loop": true,
+    "name": "Zombie_Reach_1_Loop",
+    "seconds": 5.86666666666667,
+    "source": "source/Animation/In_Place/Zombie_Reach_1_Loop_IPC.fbx",
+    "source_clip": "Zombie_Reach_1_Loop_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      -0.0214838515967131,
+      -0.829019725322723,
+      0.071929894387722
+    ],
+    "loop": false,
+    "name": "Zombie_Stand_to_Crawl_1",
+    "seconds": 4.63333333333333,
+    "source": "source/Animation/In_Place/Zombie_Stand to_Crawl_1_IPC.fbx",
+    "source_clip": "Zombie_Stand to_Crawl_1_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      -0.00546727143228054,
+      -0.0243619680404663,
+      0.0389789678156376
+    ],
+    "loop": false,
+    "name": "Zombie_Stand_To_Atk_1",
+    "seconds": 4.43333333333333,
+    "source": "source/Animation/In_Place/Zombie_Stand_To_Atk_1_IPC.fbx",
+    "source_clip": "Zombie_Stand_To_Atk_1_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      -0.0202712621539831,
+      0.0014074444770813,
+      0.0774858742952347
+    ],
+    "loop": false,
+    "name": "Zombie_Stand_To_Chase_1",
+    "seconds": 1.03333333333333,
+    "source": "source/Animation/In_Place/Zombie_Stand_To_Chase_1_IPC.fbx",
+    "source_clip": "Zombie_Stand_To_Chase_1_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      -0.0200363956391811,
+      -0.00260615348815918,
+      0.0756678804755211
+    ],
+    "loop": false,
+    "name": "Zombie_Stand_Walk_F_1",
+    "seconds": 1.83333333333333,
+    "source": "source/Animation/In_Place/Zombie_Stand_Walk_F_1_IPC.fbx",
+    "source_clip": "Zombie_Stand_Walk_F_1_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      -0.000000141561031341553,
+      0.0000000596046447753906,
+      0.00000000745058059692383
+    ],
+    "loop": true,
+    "name": "Zombie_Turn_L_45_Loop",
+    "seconds": 1.26666666666667,
+    "source": "source/Animation/In_Place/Zombie_Turn_L_45_Loop_IPC.fbx",
+    "source_clip": "Zombie_Turn_L_45_Loop_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      -0.000000182539224624634,
+      0.0,
+      -0.00000000745058059692383
+    ],
+    "loop": false,
+    "name": "Zombie_Turn_L_90_1",
+    "seconds": 5.4,
+    "source": "source/Animation/In_Place/Zombie_Turn_L_90_1_IPC.fbx",
+    "source_clip": "Zombie_Turn_L_90_1_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      -0.000000212341547012329,
+      0.0000000596046447753906,
+      0.0000000223517417907715
+    ],
+    "loop": true,
+    "name": "Zombie_Turn_R_45_Loop",
+    "seconds": 1.26666666666667,
+    "source": "source/Animation/In_Place/Zombie_Turn_R_45_Loop_IPC.fbx",
+    "source_clip": "Zombie_Turn_R_45_Loop_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      -0.000000197440385818481,
+      0.000000298023223876953,
+      0.0000000223517417907715
+    ],
+    "loop": false,
+    "name": "Zombie_Turn_R_90_1",
+    "seconds": 5.13333333333333,
+    "source": "source/Animation/In_Place/Zombie_Turn_R_90_1_IPC.fbx",
+    "source_clip": "Zombie_Turn_R_90_1_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      0.0232187751680613,
+      0.0387965440750122,
+      -0.0154349151998758
+    ],
+    "loop": false,
+    "name": "Zombie_Walk_F_1_KnockBack_Walk",
+    "seconds": 5.5,
+    "source": "source/Animation/In_Place/Zombie_Walk_F_1_KnockBack_Walk_IPC.fbx",
+    "source_clip": "Zombie_Walk_F_1_KnockBack_Walk_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      -0.000000313739292323589,
+      -0.00000250339508056641,
+      -0.000000680331140756607
+    ],
+    "loop": true,
+    "name": "Zombie_Walk_F_1_Loop",
+    "seconds": 4.5,
+    "source": "source/Animation/In_Place/Zombie_Walk_F_1_Loop_IPC.fbx",
+    "source_clip": "Zombie_Walk_F_1_Loop_IPC",
+    "tracks": 219,
+    "variant": "in_place"
+  },
+  {
+    "hips_displacement_m": [
+      -0.0000143609941005707,
+      -0.0127415657043457,
+      -0.0013139620423317
+    ],
+    "loop": false,
+    "name": "MOB_Stand_to_Zombie_Idle_1_v2",
+    "seconds": 1.53333333333333,
+    "source": "source/Animation/Root_Motion/MOB_Stand_to_Zombie_Idle_1_v2.fbx",
+    "source_clip": "MOB_Stand_to_Zombie_Idle_1_v2",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      -0.0000000633299350738525,
+      -0.000000655651092529297,
+      0.0000000819563865661621
+    ],
+    "loop": true,
+    "name": "Zombie_Atk_Arms_3_SHORT_Loop",
+    "seconds": 1.7,
+    "source": "source/Animation/Root_Motion/Zombie_Atk_Arms_3_SHORT_Loop.fbx",
+    "source_clip": "Zombie_Atk_Arms_3_SHORT",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      0.00000000931322574615479,
+      0.0,
+      0.00000000745058059692383
+    ],
+    "loop": true,
+    "name": "Zombie_Atk_Loop_1",
+    "seconds": 6.4,
+    "source": "source/Animation/Root_Motion/Zombie_Atk_Loop_1.fbx",
+    "source_clip": "Zombie_Atk_1",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      0.0042751356959343,
+      -0.00269985198974609,
+      0.0300549827516079
+    ],
+    "loop": false,
+    "name": "Zombie_Chase_1_KnockBack_Chase",
+    "seconds": 4.93333333333333,
+    "source": "source/Animation/Root_Motion/Zombie_Chase_1_KnockBack_Chase.fbx",
+    "source_clip": "Zombie_Chase_1_KnockBack_Chase",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      -0.0000000187428668141365,
+      0.0000000596046447753906,
+      1.18955624103546
+    ],
+    "loop": true,
+    "name": "Zombie_Chase_1_Loop",
+    "seconds": 2.63333333333333,
+    "source": "source/Animation/Root_Motion/Zombie_Chase_1_Loop.fbx",
+    "source_clip": "Zombie_Chase_1",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      -0.00000108708627521992,
+      -0.000000879168510437012,
+      0.727097034454346
+    ],
+    "loop": true,
+    "name": "Zombie_Crawl_1_Loop",
+    "seconds": 9.03333333333333,
+    "source": "source/Animation/Root_Motion/Zombie_Crawl_1_Loop.fbx",
+    "source_clip": "Zombie_Crawl_1",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      -0.00649010017514229,
+      -0.846861004829407,
+      -1.7657368183136
+    ],
+    "loop": false,
+    "name": "Zombie_Death_Back_Mid_1",
+    "seconds": 2.76666666666667,
+    "source": "source/Animation/Root_Motion/Zombie_Death_Back_Mid_1.fbx",
+    "source_clip": "Zombie_Death_Back_Mid_1",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      -0.037715882062912,
+      -0.837993443012238,
+      -1.37052607536316
+    ],
+    "loop": false,
+    "name": "Zombie_Death_Hit_Back_1",
+    "seconds": 1.7,
+    "source": "source/Animation/Root_Motion/Zombie_Death_Hit_Back_1.fbx",
+    "source_clip": "Zombie_Death_Hit_Back_1",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      0.0000000800937414169312,
+      0.0,
+      0.0000000149011611938477
+    ],
+    "loop": true,
+    "name": "Zombie_HyperAttack_1_SHORT_Idle_Loop",
+    "seconds": 1.9,
+    "source": "source/Animation/Root_Motion/Zombie_HyperAttack_1_SHORT_Idle_Loop.fbx",
+    "source_clip": "Zombie_HyperAttack_1_SHORT_Idle",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      0.00000060349702835083,
+      -0.00000536441802978516,
+      0.000000596046447753906
+    ],
+    "loop": true,
+    "name": "Zombie_HyperAttack_1_SHORT_Loop",
+    "seconds": 2.2,
+    "source": "source/Animation/Root_Motion/Zombie_HyperAttack_1_SHORT_Loop.fbx",
+    "source_clip": "Zombie_HyperAttack_1_SHORT",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      -0.000000212341547012329,
+      0.00000542402267456055,
+      5.18778610229492
+    ],
+    "loop": true,
+    "name": "Zombie_HyperChase_1_Loop",
+    "seconds": 1.9,
+    "source": "source/Animation/Root_Motion/Zombie_HyperChase_1_Loop.fbx",
+    "source_clip": "Zombie_HyperChase_1",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      0.0000000242143869400024,
+      -0.000000178813934326172,
+      -0.000000044703483581543
+    ],
+    "loop": true,
+    "name": "Zombie_Idle_1_v2",
+    "seconds": 12.5,
+    "source": "source/Animation/Root_Motion/Zombie_Idle_1_v2.fbx",
+    "source_clip": "Zombie_Idle_1_v2",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      0.0000144783407449722,
+      0.0127409696578979,
+      0.00131396949291229
+    ],
+    "loop": false,
+    "name": "Zombie_Idle_1_v2_to_MOB_Stand",
+    "seconds": 1.53333333333333,
+    "source": "source/Animation/Root_Motion/Zombie_Idle_1_v2_to_MOB_Stand.fbx",
+    "source_clip": "Zombie_Idle_1_v2_to_MOB_Stand",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      0.00000123679637908936,
+      0.0000182986259460449,
+      0.000000327825546264648
+    ],
+    "loop": true,
+    "name": "Zombie_Idle_2",
+    "seconds": 13.6666666666667,
+    "source": "source/Animation/Root_Motion/Zombie_Idle_2.fbx",
+    "source_clip": "Zombie_Idle_2",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      -0.121259540319443,
+      -0.82202559709549,
+      -1.29905116558075
+    ],
+    "loop": false,
+    "name": "Zombie_OnFire_2A_SHORT",
+    "seconds": 4.13333333333333,
+    "source": "source/Animation/Root_Motion/Zombie_OnFire_2A_SHORT.fbx",
+    "source_clip": "Zombie_OnFire_2A_SHORT",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      0.000000205356627702713,
+      0.00000131130218505859,
+      0.000000804662704467773
+    ],
+    "loop": true,
+    "name": "Zombie_Reach_1_Loop",
+    "seconds": 5.86666666666667,
+    "source": "source/Animation/Root_Motion/Zombie_Reach_1_Loop.fbx",
+    "source_clip": "Zombie_Reach_1",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      -0.0214838515967131,
+      -0.829019725322723,
+      2.02931928634644
+    ],
+    "loop": false,
+    "name": "Zombie_Stand_to_Crawl_1",
+    "seconds": 4.63333333333333,
+    "source": "source/Animation/Root_Motion/Zombie_Stand to_Crawl_1.fbx",
+    "source_clip": "Zombie_Stand to_Crawl_1",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      -0.00546727143228054,
+      -0.0243619680404663,
+      1.94256317615509
+    ],
+    "loop": false,
+    "name": "Zombie_Stand_To_Atk_1",
+    "seconds": 4.43333333333333,
+    "source": "source/Animation/Root_Motion/Zombie_Stand_To_Atk_1.fbx",
+    "source_clip": "Zombie_Stand_To_Atk_1",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      -0.0202712621539831,
+      0.0014074444770813,
+      0.284214854240417
+    ],
+    "loop": false,
+    "name": "Zombie_Stand_To_Chase_1",
+    "seconds": 1.03333333333333,
+    "source": "source/Animation/Root_Motion/Zombie_Stand_To_Chase_1.fbx",
+    "source_clip": "Zombie_Stand_To_Chase_1",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      -0.0200364161282778,
+      -0.00260603427886963,
+      0.260992974042892
+    ],
+    "loop": false,
+    "name": "Zombie_Stand_Walk_F_1",
+    "seconds": 1.83333333333333,
+    "source": "source/Animation/Root_Motion/Zombie_Stand_Walk_F_1.fbx",
+    "source_clip": "Zombie_Stand_Walk_F_1",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      -0.0564398691058159,
+      0.0,
+      0.00611311197280884
+    ],
+    "loop": true,
+    "name": "Zombie_Turn_L_45_Loop",
+    "seconds": 1.26666666666667,
+    "source": "source/Animation/Root_Motion/Zombie_Turn_L_45_Loop.fbx",
+    "source_clip": "Zombie_Turn_L_45",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      -0.092026062309742,
+      -0.0000000596046447753906,
+      0.050344854593277
+    ],
+    "loop": false,
+    "name": "Zombie_Turn_L_90_1",
+    "seconds": 5.4,
+    "source": "source/Animation/Root_Motion/Zombie_Turn_L_90_1.fbx",
+    "source_clip": "Zombie_Turn_L_90_1",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      0.0442315004765987,
+      0.0,
+      0.0355861075222492
+    ],
+    "loop": true,
+    "name": "Zombie_Turn_R_45_Loop",
+    "seconds": 1.26666666666667,
+    "source": "source/Animation/Root_Motion/Zombie_Turn_R_45_Loop.fbx",
+    "source_clip": "Zombie_Turn_R_45",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      0.0503446944057941,
+      0.000000238418579101563,
+      0.0920258611440659
+    ],
+    "loop": false,
+    "name": "Zombie_Turn_R_90_1",
+    "seconds": 5.13333333333333,
+    "source": "source/Animation/Root_Motion/Zombie_Turn_R_90_1.fbx",
+    "source_clip": "Zombie_Turn_R_90_1",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      0.0232187658548355,
+      0.0387965440750122,
+      -1.60153448581696
+    ],
+    "loop": false,
+    "name": "Zombie_Walk_F_1_KnockBack_Walk",
+    "seconds": 5.5,
+    "source": "source/Animation/Root_Motion/Zombie_Walk_F_1_KnockBack_Walk.fbx",
+    "source_clip": "Zombie_Walk_F_1_KnockBack_Walk",
+    "tracks": 219,
+    "variant": "root_motion"
+  },
+  {
+    "hips_displacement_m": [
+      -0.000000308151356875896,
+      -0.00000250339508056641,
+      0.894720613956451
+    ],
+    "loop": true,
+    "name": "Zombie_Walk_F_1_Loop",
+    "seconds": 4.5,
+    "source": "source/Animation/Root_Motion/Zombie_Walk_F_1_Loop.fbx",
+    "source_clip": "Zombie_Walk_F_1",
+    "tracks": 219,
+    "variant": "root_motion"
+  }
+]

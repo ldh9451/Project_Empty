@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="PackedScene" path="res://resources/characters/scifi_beast06_bull/models/beast06_bull.scn" id="1_model"]
+[ext_resource type="AnimationLibrary" path="res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res" id="2_animations"]
+[ext_resource type="Material" path="res://resources/characters/scifi_beast06_bull/materials/skin1/body.tres" id="3_body"]
+[ext_resource type="Material" path="res://resources/characters/scifi_beast06_bull/materials/skin1/armor.tres" id="4_armor"]
+[ext_resource type="Material" path="res://resources/characters/scifi_beast06_bull/materials/shared/glass.tres" id="5_glass"]
+
+[node name="Beast06BullSkin1" instance=ExtResource("1_model")]
+
+[node name="Razor_V2" parent="Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("4_armor")
+
+[node name="Armor_Chest1" parent="Skeleton3D" index="1"]
+surface_material_override/0 = ExtResource("4_armor")
+
+[node name="Armor_Spine1" parent="Skeleton3D" index="2"]
+surface_material_override/0 = ExtResource("4_armor")
+
+[node name="Armor_Arms1" parent="Skeleton3D" index="3"]
+surface_material_override/0 = ExtResource("4_armor")
+
+[node name="Armor_Hand1" parent="Skeleton3D" index="4"]
+surface_material_override/0 = ExtResource("4_armor")
+
+[node name="Armor_Legs1" parent="Skeleton3D" index="5"]
+surface_material_override/0 = ExtResource("4_armor")
+
+[node name="Armor_Neck1" parent="Skeleton3D" index="6"]
+surface_material_override/0 = ExtResource("4_armor")
+
+[node name="Glass1" parent="Skeleton3D" index="7"]
+surface_material_override/0 = ExtResource("5_glass")
+
+[node name="Core1" parent="Skeleton3D" index="8"]
+surface_material_override/0 = ExtResource("4_armor")
+
+[node name="Chest1" parent="Skeleton3D" index="9"]
+surface_material_override/0 = ExtResource("3_body")
+
+[node name="Neck1" parent="Skeleton3D" index="10"]
+surface_material_override/0 = ExtResource("3_body")
+
+[node name="Eyes1" parent="Skeleton3D" index="11"]
+surface_material_override/0 = ExtResource("3_body")
+
+[node name="Legs1" parent="Skeleton3D" index="12"]
+surface_material_override/0 = ExtResource("3_body")
+
+[node name="Arms1" parent="Skeleton3D" index="13"]
+surface_material_override/0 = ExtResource("3_body")
+
+[node name="Head1" parent="Skeleton3D" index="14"]
+surface_material_override/0 = ExtResource("3_body")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {&"": ExtResource("2_animations")}
+autoplay = "Idle1"

@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://resources/characters/zombie_starter/materials/motusman.gdshader" id="1_kd865"]
+[ext_resource type="Texture2D" path="res://resources/characters/zombie_starter/textures/MCG_diff.jpg" id="2_nhjxn"]
+[ext_resource type="Texture2D" path="res://resources/characters/zombie_starter/textures/MCG_spec.jpg" id="3_mp2vd"]
+
+[resource]
+resource_name = "MotusMan"
+render_priority = 0
+shader = ExtResource("1_kd865")
+shader_parameter/diffuse_texture = ExtResource("2_nhjxn")
+shader_parameter/specular_texture = ExtResource("3_mp2vd")
+shader_parameter/diffuse_factor = null
+shader_parameter/specular_strength = null
+shader_parameter/roughness = null

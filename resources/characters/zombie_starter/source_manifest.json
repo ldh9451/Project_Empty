@@ -1,0 +1,317 @@
+{
+  "origin": "C:\\ProgramData\\Epic\\EpicGamesLauncher\\VaultCache\\FabLibrary\\Zombie_Starter_-_MoCap_Animation_Pack-c52d1834\\fbx\\fbx_zombie_27_starter_extracted\\FBX_Zombie_27_Starter",
+  "files": [
+    {
+      "source": "Zombie Starter 2.7 - Animation List - MocapOnline.pdf",
+      "bytes": 42693,
+      "sha256": "efa85b3484e3ae132291d41c58a46a292a28b6e16d75a3b5cfe4f5ac19d19a4b"
+    },
+    {
+      "source": "MotusMan_v55/MotusManv55_HIK_Rig.ma",
+      "bytes": 3386868,
+      "sha256": "856c4823a0e494101d0e559089671c35c941774b5ba94241ae66c3937920a80d"
+    },
+    {
+      "source": "MotusMan_v55/MotusMan_v55.fbx",
+      "bytes": 1464032,
+      "sha256": "de54c738bb0bbc12a208f2a2b5c7141a39490af61481ea504c11e9b85daee04a"
+    },
+    {
+      "source": "Animation/In_Place/MOB_Stand_to_Zombie_Idle_1_v2_IPC.fbx",
+      "bytes": 1563840,
+      "sha256": "07fbbf5cb3fe05d127fefc744bd9c8d5d3bdf16c68bf043ef9285494c5ffe2c6"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_Atk_Arms_3_SHORT_Loop_IPC.fbx",
+      "bytes": 1527488,
+      "sha256": "1fa5f91faaa02e9f3d707afa97bce8d3d281e2635b6a46dd72b1a1c0bc95edfb"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_Atk_Loop_1_IPC.fbx",
+      "bytes": 1607472,
+      "sha256": "98aca54165bb61c68b8555f8e6596d4ca4d83e5cc4eee3fdc27e3f4f70b3d53c"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_Chase_1_KnockBack_Chase_IPC.fbx",
+      "bytes": 1584656,
+      "sha256": "769eb96ac319114f7a0f0cf0e81a9395fbd86faad6cfb1c5c9c1ce5caf1e0465"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_Chase_1_Loop_IPC.fbx",
+      "bytes": 1548864,
+      "sha256": "6a16d041a915c4dd4e833151b8423b561a1c7e24aa30a27d78ca41290ab85dcf"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_Crawl_1_Loop_IPC.fbx",
+      "bytes": 1694784,
+      "sha256": "9f2f4bc10149331c45c3e85c67db744c88afea2d413d2fced68b9204b1d6f6e1"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_Death_Back_Mid_1_IPC.fbx",
+      "bytes": 1570176,
+      "sha256": "e05d4e4b0e4c5c03ff46cb4f7643a10c3b76c2a54b3f4a5bfad9a29d14fb619f"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_Death_Hit_Back_1_IPC.fbx",
+      "bytes": 1533008,
+      "sha256": "5a3d83d0930c2d93c9b994033251672827a58da5f89dcd4e649313f1e4288e94"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_HyperAttack_1_SHORT_Idle_Loop_IPC.fbx",
+      "bytes": 1531696,
+      "sha256": "fd0b15652a022609e0c734a2597905837ab009dc97884a2b3ecb2572e5ca6aa8"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_HyperAttack_1_SHORT_Loop_IPC.fbx",
+      "bytes": 1540240,
+      "sha256": "80a9b746c91d539a92ef3dd65962263663bc487803bb2094fd7f221a1154fe4b"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_HyperChase_1_Loop_IPC.fbx",
+      "bytes": 1531968,
+      "sha256": "b999520e22be98a8a6fd3dc39fc2b143892968ee0b539453807fe958a5761985"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_Idle_1_v2_IPC.fbx",
+      "bytes": 1713360,
+      "sha256": "87c1ee29a5783e0f28aa034b8afb726c2a359147a1a8ae223de98485fad9b072"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_Idle_1_v2_to_MOB_Stand_IPC.fbx",
+      "bytes": 1563664,
+      "sha256": "e48d44c361caef6eba8b9a0958cd04c19129fcfc2163ffc51ec87efc1b5eb8b8"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_Idle_2_IPC.fbx",
+      "bytes": 1748288,
+      "sha256": "5d63ad901ff0c621626f4fe74bd24bfdec3e3d74a510e01d8c3f34eb0951a85c"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_OnFire_2A_SHORT_IPC.fbx",
+      "bytes": 1584688,
+      "sha256": "2e5439e9694e7170411b3c7ed46bce14131b37d9411de744d2705a9e8fe17f45"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_Reach_1_Loop_IPC.fbx",
+      "bytes": 1598560,
+      "sha256": "da04f1253f492913caea03bb7689d669bcc56d55ef92ae0c1dcc7acdc966132d"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_Stand to_Crawl_1_IPC.fbx",
+      "bytes": 1681472,
+      "sha256": "f656ad99b51c2bd45adab56f0627821a828d49f32e2b2a2e42a3774abe1d822b"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_Stand_To_Atk_1_IPC.fbx",
+      "bytes": 1593328,
+      "sha256": "c8059b8a075729a323dda9e72b62cfaeceaf8951dbf5d6c9aec57776bd51ca82"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_Stand_To_Chase_1_IPC.fbx",
+      "bytes": 1508352,
+      "sha256": "889eae22b547d8de3985ff4bc52a0a9b1d270fd87f083aef4595d7450ff5dc8d"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_Stand_Walk_F_1_IPC.fbx",
+      "bytes": 1528096,
+      "sha256": "39e72226d800f5c5562fc9d17a50b23c976970e67237e803ab85caa0d91db4a4"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_Turn_L_45_Loop_IPC.fbx",
+      "bytes": 1514528,
+      "sha256": "22b49516828d6f1953b3efd523319c847be23d7c18243dc0fc037d675c386396"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_Turn_L_90_1_IPC.fbx",
+      "bytes": 1590416,
+      "sha256": "e0a104a411750a8f4a22e2790d50ff2c6db60d5e55d5b95da3317adb322d8103"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_Turn_R_45_Loop_IPC.fbx",
+      "bytes": 1514288,
+      "sha256": "dc2239f25b7a31d3f860339e68783267fa7c062d5ef46216dc0a55cb033ebc06"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_Turn_R_90_1_IPC.fbx",
+      "bytes": 1585088,
+      "sha256": "163f6cd8fc6791037bf907fc209d5fe870454df1927817f0c4ba89bb0c5927a6"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_Walk_F_1_KnockBack_Walk_IPC.fbx",
+      "bytes": 1594096,
+      "sha256": "a9524417a0fdfd9d8e0a45aef7d71fc3ef172964c86ead0ac3a943503bc6b313"
+    },
+    {
+      "source": "Animation/In_Place/Zombie_Walk_F_1_Loop_IPC.fbx",
+      "bytes": 1575232,
+      "sha256": "51d84d1a707b0b6841033198bbc28c7a83a039a37ea7b9294d27ad41164c8e6d"
+    },
+    {
+      "source": "Animation/Root_Motion/MOB_Stand_to_Zombie_Idle_1_v2.fbx",
+      "bytes": 1563824,
+      "sha256": "1c27be10d6263d4a60c8a57b929acb812b32656f56e28033654dbed426c49ae0"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_Atk_Arms_3_SHORT_Loop.fbx",
+      "bytes": 1527472,
+      "sha256": "b8842fd0dc107333a26409df67940e926fc677ad997e89c0ba09fd20f17d0562"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_Atk_Loop_1.fbx",
+      "bytes": 1607456,
+      "sha256": "d646912793123e80f04ae55a1af8ac6dfeb112e1836c3b18b5ae5a43f0fa01f1"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_Chase_1_KnockBack_Chase.fbx",
+      "bytes": 1584640,
+      "sha256": "223ccac119f49054e18e0a577784039b7c1709a802819e550212a852c1b552f5"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_Chase_1_Loop.fbx",
+      "bytes": 1548848,
+      "sha256": "8a1eb153ac4507f2d2e7f1a15d99b259c09f9c32f755d0dae7be7d314f6a3372"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_Crawl_1_Loop.fbx",
+      "bytes": 1694704,
+      "sha256": "83e25550de0112a7c62bba7044e0c7cb06996eedccfcb9c113307b5d6f95f05d"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_Death_Back_Mid_1.fbx",
+      "bytes": 1570160,
+      "sha256": "10a9e89fd77bb1f91fbf2e911d10509053c42b5cebf05e8cf2252edd1fca6ce7"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_Death_Hit_Back_1.fbx",
+      "bytes": 1532976,
+      "sha256": "69b79aba5dccc185e58ba3e968145d8bfff5a1ed4d940bded8db9319867a32e3"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_HyperAttack_1_SHORT_Idle_Loop.fbx",
+      "bytes": 1531680,
+      "sha256": "c5a581839802c83cb4e3754a7e59f55e5ad00f47569930ae8740ed70ac1ee80c"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_HyperAttack_1_SHORT_Loop.fbx",
+      "bytes": 1540224,
+      "sha256": "51b86334aeae835557afaba8a213886c9c6f61ce445982a82fec122dcaace5bd"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_HyperChase_1_Loop.fbx",
+      "bytes": 1531936,
+      "sha256": "034055c8821b4fca7f214c5ca4b9fb5edf00ad5c1b91362726db007cf71e314c"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_Idle_1_v2.fbx",
+      "bytes": 1713152,
+      "sha256": "6e89032a83170cb720e8a8a9238c5ab1cc9539f92e6c4e93f4dc182afbe4e252"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_Idle_1_v2_to_MOB_Stand.fbx",
+      "bytes": 1563648,
+      "sha256": "24868463ee980ca70dace8ce15d557a5174c3af7fac2164574594af9a574d35b"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_Idle_2.fbx",
+      "bytes": 1748272,
+      "sha256": "d783c95685ec9cc03af479239dc27fc388db701e19f0c190f2a2f20b1d803038"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_OnFire_2A_SHORT.fbx",
+      "bytes": 1584656,
+      "sha256": "85271b494e390dbc689ad025a66f263786b1a9b17f6c849cf388cc613bd44ab5"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_Reach_1_Loop.fbx",
+      "bytes": 1598544,
+      "sha256": "98206210cd078ec950f506805a90cf1395f46a87057a80ab928c2a3ccd63b406"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_Stand to_Crawl_1.fbx",
+      "bytes": 1681392,
+      "sha256": "b1e7516b7e0053ec259af947b24d29418cc3c4d1e41f1c4b02c51fc6b5e08041"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_Stand_To_Atk_1.fbx",
+      "bytes": 1593296,
+      "sha256": "74ba020c119028adced77669d56a55cd95d5839803e25f6fa056df00230fafdc"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_Stand_To_Chase_1.fbx",
+      "bytes": 1508336,
+      "sha256": "7408b67c5a0fa41ba9650eb11361cb0925160b52267b0ac33abaab1864235b5a"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_Stand_Walk_F_1.fbx",
+      "bytes": 1528064,
+      "sha256": "46b25e091e480c32e02e8ac29d89ed49ccf2f49641335bfd32eae2e3358844a8"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_Turn_L_45_Loop.fbx",
+      "bytes": 1514512,
+      "sha256": "3105e754cb806432bf27db1d54359cd539dfa13ec6dc487dbf7b9b17c3a0f39e"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_Turn_L_90_1.fbx",
+      "bytes": 1590400,
+      "sha256": "7fe3eba38288a2c18ebbc89b9a8ce717cfe9f372807440b5e754c1fbdbcc2e5d"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_Turn_R_45_Loop.fbx",
+      "bytes": 1514272,
+      "sha256": "76d306d4b9c3ac1115c98cb9f009950732e3595465662a01656893cbe658d31a"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_Turn_R_90_1.fbx",
+      "bytes": 1585040,
+      "sha256": "90c8d1fbce8339d688204708c3b1cff1c7bbd7c8b124c8529572840513dfc87b"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_Walk_F_1_KnockBack_Walk.fbx",
+      "bytes": 1594080,
+      "sha256": "52257156ccfeefed0acd250be9d9dbbe7d55e39f423e38de50b73406569aaeb7"
+    },
+    {
+      "source": "Animation/Root_Motion/Zombie_Walk_F_1_Loop.fbx",
+      "bytes": 1575200,
+      "sha256": "d70d0144b73772e0cc77445a43cb5322227ffadbe54cfa20455cef74d6697b80"
+    },
+    {
+      "source": "MotusMan_v55/MotusMan_v55.fbm/MCG_diff.jpg",
+      "bytes": 1721647,
+      "sha256": "cdfcbf7a743135536452a2d41211ae9b142c92ef34b8333c03a8b78307b940ed"
+    },
+    {
+      "source": "MotusMan_v55/MotusMan_v55.fbm/MCG_spec.jpg",
+      "bytes": 1830108,
+      "sha256": "61b2cfe9a055bd72fbf8d06233cb60d38a72d8930a8b253e1399c47d7feb4834"
+    },
+    {
+      "source": "MotusMan_v55/sourceimages/MCG_diff.jpg",
+      "bytes": 1721647,
+      "sha256": "cdfcbf7a743135536452a2d41211ae9b142c92ef34b8333c03a8b78307b940ed"
+    },
+    {
+      "source": "MotusMan_v55/sourceimages/MCG_spec.jpg",
+      "bytes": 1830108,
+      "sha256": "61b2cfe9a055bd72fbf8d06233cb60d38a72d8930a8b253e1399c47d7feb4834"
+    }
+  ],
+  "godot_version": "4.7.2.stable",
+  "runtime": {
+    "model": "models/motusman.scn",
+    "character_scene": "scenes/zombie_motusman.tscn",
+    "preview_scene": "scenes/preview.tscn",
+    "clips": "animations/clips.json"
+  },
+  "validation": {
+    "source_files_hash_verified": 59,
+    "source_motion_clips": 52,
+    "bones": 73,
+    "samples_per_clip": 4,
+    "matching_bone_poses": 15184,
+    "skin_bind_matrices_match": true,
+    "renderer": "D3D12 Forward+",
+    "material_conversion": "Phong specular luminance to GGX specular strength; roughness approximation 0.64"
+  }
+}

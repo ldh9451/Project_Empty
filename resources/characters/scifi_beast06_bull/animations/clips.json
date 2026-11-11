@@ -1,0 +1,205 @@
+[
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 78,
+    "duration": 0.666666666666667,
+    "loop": false,
+    "name": "Attack1"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 30,
+    "duration": 1.0,
+    "loop": false,
+    "name": "Attack2"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 93,
+    "duration": 1.0,
+    "loop": false,
+    "name": "Attack3"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 60,
+    "duration": 0.666666666666667,
+    "loop": false,
+    "name": "Attack4"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 60,
+    "duration": 2.16666666666667,
+    "loop": false,
+    "name": "Attack5"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 60,
+    "duration": 0.666666666666667,
+    "loop": false,
+    "name": "Attack6"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 63,
+    "duration": 1.33333333333333,
+    "loop": false,
+    "name": "Death1"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 63,
+    "duration": 1.0,
+    "loop": false,
+    "name": "Death2"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 63,
+    "duration": 0.8,
+    "loop": false,
+    "name": "GetHitB"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 0,
+    "duration": 0.8,
+    "loop": false,
+    "name": "GetHitB2"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 0,
+    "duration": 0.8,
+    "loop": false,
+    "name": "GetHitF"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 0,
+    "duration": 0.8,
+    "loop": false,
+    "name": "GetHitF2"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 0,
+    "duration": 0.8,
+    "loop": false,
+    "name": "GetHitL"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 0,
+    "duration": 0.8,
+    "loop": false,
+    "name": "GetHitL2"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 0,
+    "duration": 0.8,
+    "loop": false,
+    "name": "GetHitR"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 0,
+    "duration": 0.8,
+    "loop": false,
+    "name": "GetHitR2"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 93,
+    "duration": 6.66666666666667,
+    "loop": true,
+    "name": "Idle1"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 93,
+    "duration": 2.66666666666667,
+    "loop": true,
+    "name": "Idle2"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 63,
+    "duration": 0.666666666666667,
+    "loop": false,
+    "name": "JumpEnd"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 93,
+    "duration": 0.666666666666667,
+    "loop": true,
+    "name": "JumpLoop"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 3,
+    "duration": 0.666666666666667,
+    "loop": false,
+    "name": "JumpStart"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 63,
+    "duration": 1.33333333333333,
+    "loop": false,
+    "name": "Rage"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 63,
+    "duration": 0.666666666666667,
+    "loop": true,
+    "name": "Run"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 63,
+    "duration": 3.33333333333333,
+    "loop": false,
+    "name": "Turn180"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 63,
+    "duration": 1.2,
+    "loop": true,
+    "name": "WalkB"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 63,
+    "duration": 0.933333333333333,
+    "loop": true,
+    "name": "WalkF"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 63,
+    "duration": 0.933333333333333,
+    "loop": true,
+    "name": "WalkF2"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 63,
+    "duration": 0.933333333333333,
+    "loop": true,
+    "name": "WalkL"
+  },
+  {
+    "bone_tracks": 213,
+    "discarded_control_tracks": 63,
+    "duration": 0.933333333333333,
+    "loop": true,
+    "name": "WalkR"
+  }
+]

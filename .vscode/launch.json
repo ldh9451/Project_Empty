@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Godot + C++ (Debug)",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${env:USERPROFILE}/Downloads/Godot_v4.7.2-stable_win64.exe/Godot_v4.7.2-stable_win64.exe",
+      "args": ["--path", "${workspaceFolder}"],
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build GDExtension (Debug)",
+      "stopAtEntry": false,
+      "console": "internalConsole"
+    }
+  ]
+}

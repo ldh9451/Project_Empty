@@ -1,0 +1,522 @@
+{
+  "package": "scifi_beast06.unitypackage",
+  "origin": "C:\\ProgramData\\Epic\\EpicGamesLauncher\\VaultCache\\FabLibrary\\SciFi_Beast06_Bull-126120a3\\unity\\scifi_beast06.unitypackage",
+  "godot_version": "4.7.2.stable",
+  "assets": [
+    {
+      "guid": "01f220ec41e2f3c44846189a21feafc3",
+      "unity_path": "Assets/SciFi Beast06 Bull/Prefab/SciFi Beast06 Bull Skin3.prefab",
+      "bytes": 114357,
+      "sha256": "862da8679868a19de348ae42ca8a11354fb7362706b401b6b4b0a231a3d80dd1",
+      "archived_path": "source/unity/Prefab/SciFi Beast06 Bull Skin3.prefab"
+    },
+    {
+      "guid": "0759f3bd16318274f9f88d02d1584509",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin3/T_Mat_SciFi_Beast06_Body_Emissive_Skin3.tga",
+      "bytes": 12582956,
+      "sha256": "5dd8985b0529fa72641b75e2f1781895cbca12a7a360535f94d684738ac0334b",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/skin3/body_emissive_skin3.png"
+    },
+    {
+      "guid": "0afc85636668877489e1324be77062e9",
+      "unity_path": "Assets/SciFi Beast06 Bull/Materials/Skin1/Mat_SciFi_Beast06_Armor_Skin1.mat",
+      "bytes": 2455,
+      "sha256": "2ca28f58b6b263369a7d12b053db325a5c145c309f889b72ebe3481c3d570469",
+      "archived_path": "source/unity/Materials/Skin1/Mat_SciFi_Beast06_Armor_Skin1.mat"
+    },
+    {
+      "guid": "0c780861764199a4e9346c525d2fe96e",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin2/T_Mat_SciFi_Beast06_Body_Emissive_Skin2.tga",
+      "bytes": 12582956,
+      "sha256": "fc57d604d65ebbbe147857c00e87915b83c7a468675fdbc28603989f46ba6b43",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/skin2/body_emissive_skin2.png"
+    },
+    {
+      "guid": "0ce0890954248cf4cb972d1deb72f52d",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@GetHitL.fbx",
+      "bytes": 930112,
+      "sha256": "14487c600a966f920885c5081d22917a2321de8ca4558649872553716a4d5bcc",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@GetHitL.fbx"
+    },
+    {
+      "guid": "112f1bd48dfa0a949a43e0565c197e13",
+      "unity_path": "Assets/SciFi Beast06 Bull/SciFi Beast06 Bull.unity",
+      "bytes": 15350,
+      "sha256": "be2ffa951a3f1a3010945f779026448ab7d9e06a521a65584d91f7153e59cbc4",
+      "archived_path": "source/unity/SciFi Beast06 Bull.unity"
+    },
+    {
+      "guid": "15dd3f0e01150684f9780c887f764e89",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin2/T_Mat_SciFi_Beast06_Body_MetalGloss_Skin2.tga",
+      "bytes": 16777260,
+      "sha256": "6e2626a60ac96a5cd937904b5e01c0123c15794e7e92eb20927d63a6644bba2a",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/skin2/body_metalgloss_skin2.png"
+    },
+    {
+      "guid": "1670a904e6401144b9e414beb1338191",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin3/T_Mat_SciFi_Beast06_Body_BaseColor_Skin3.tga",
+      "bytes": 50331692,
+      "sha256": "376d4811322eb32e7c2aab2d6bd54710a586d6ca34053322a89f93ccf28b99d9",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/skin3/body_basecolor_skin3.png"
+    },
+    {
+      "guid": "2491e699c304ad240bd948fa90a469c2",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@Attack1.fbx",
+      "bytes": 1070912,
+      "sha256": "db7e18aa2d184ff9ef36a91c1dbea3f25553a07c3bdf27d4f8bd52b711e79459",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@Attack1.fbx"
+    },
+    {
+      "guid": "27ffe12fdfabc0d41be3120a04e83a40",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin2/T_Mat_SciFi_Beast06_Body_Normal_Skin2.tga",
+      "bytes": 50331692,
+      "sha256": "3f5bb262473554291b5621223441bd697c63c2adc66fc151b14f90ad82f35af2",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/skin2/body_normal_skin2.png"
+    },
+    {
+      "guid": "2f6a1db8f031d8141aa23a193cec3f9c",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@Attack2.fbx",
+      "bytes": 1110816,
+      "sha256": "c6e3539e6aa205ead46b607e0b49ab541c5f4393074a6d95c9375118dfb1fa6d",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@Attack2.fbx"
+    },
+    {
+      "guid": "303e1c3b5e7326d4592fed522da55483",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin1/T_Mat_SciFi_Beast06_Armor_MetalGloss_Skin1.tga",
+      "bytes": 16777260,
+      "sha256": "85992357831d542337f7598ed156076ff2e7c7c587db3d7210eee004d8a02320",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/skin1/armor_metalgloss_skin1.png"
+    },
+    {
+      "guid": "312380f288217244c98731b3dee9d08c",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin2/T_Mat_SciFi_Beast06_Armor_Emissive_Skin2.tga",
+      "bytes": 12582956,
+      "sha256": "e264d72d5b51b3b0d8ebd59601de8d6bf775a40f52690c505da3b2ded88b1194",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/skin2/armor_emissive_skin2.png"
+    },
+    {
+      "guid": "32bbabe3671959041a2f9a5621050088",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@Attack4.fbx",
+      "bytes": 1059024,
+      "sha256": "8b533e4582721824f614a1e9d19bb81ec7658dadcf4d9fe80bbe85f6a3dd27f2",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@Attack4.fbx"
+    },
+    {
+      "guid": "33b149b2946c8504d87a5f0546d7d828",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin1/T_Mat_SciFi_Beast06_Body_BaseColor_Skin1.tga",
+      "bytes": 50331692,
+      "sha256": "4f53fc8a6b2d9d869cdbb308d3e3c9172fd0b9f252fc3595f7f624a6b763d55c",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/skin1/body_basecolor_skin1.png"
+    },
+    {
+      "guid": "354cc8b4bf5a172489779c747cf9cf8f",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin1/T_Mat_SciFi_Beast06_Armor_BaseColor_Skin1.tga",
+      "bytes": 67108908,
+      "sha256": "538cc3130e139594822dd348e9957948766d62c382823d5e7133025458b1750d",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/skin1/armor_basecolor_skin1.png"
+    },
+    {
+      "guid": "3859d18da5534cd4db9753a69a86789b",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@Attack3.fbx",
+      "bytes": 1346272,
+      "sha256": "fb719f1b04235bb413bc0acc41294f69996a99ec6ff37f710a1e969a68d9c922",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@Attack3.fbx"
+    },
+    {
+      "guid": "39f160341eac5674ebd453d1c5eb536d",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@WalkB.fbx",
+      "bytes": 1270720,
+      "sha256": "01502ed039ee414344f235ef40248dc9f86c0386e0a46ad009c058c3b4656f3a",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@WalkB.fbx"
+    },
+    {
+      "guid": "3a4e1f8229797f44eaa9e39934981400",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@Idle2.fbx",
+      "bytes": 1860352,
+      "sha256": "5838ab3dd870722808e3167e5619f3525223bc548b806f267991311c959051c6",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@Idle2.fbx"
+    },
+    {
+      "guid": "3be054bd71e94ba44b1bda2b919daea6",
+      "unity_path": "Assets/SciFi Beast06 Bull/Prefab/SciFi Beast06 Bull Skin2.prefab",
+      "bytes": 114371,
+      "sha256": "b2235a9aa5a52b1ed0a54c1dbfaf87b90d05bd1c7bfd14f82b02fe6842941c3c",
+      "archived_path": "source/unity/Prefab/SciFi Beast06 Bull Skin2.prefab"
+    },
+    {
+      "guid": "3fbb1e974992eef42afb8e8fcb1269c8",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin1/T_Mat_SciFi_Beast06_Body_MetalGloss_Skin1.tga",
+      "bytes": 16777260,
+      "sha256": "a92e9a90a89eaa62a2b0544bcaf20f8350a145b845a66b306e4ead733d2027ac",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/skin1/body_metalgloss_skin1.png"
+    },
+    {
+      "guid": "40f61618b7da72a468c944bcc7136bee",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@Idle1.fbx",
+      "bytes": 2830608,
+      "sha256": "1b8a0bc4b48fbfc0ca1532977ab5236087f79e1bd4b657371bda39d20aa503bd",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@Idle1.fbx"
+    },
+    {
+      "guid": "465935082f41c484f9012ac969081cf8",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin1/T_Mat_SciFi_Beast06_Armor_AO_Skin1.tga",
+      "bytes": 12582956,
+      "sha256": "d4bc526df2a29529504df1b92519c4596d272589e6cedaedea2fff7fcbbe1c36",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/shared/armor_ao_skin1.png"
+    },
+    {
+      "guid": "46df4668576ebe74a9c47271350d056f",
+      "unity_path": "Assets/SciFi Beast06 Bull/Materials/Skin2/Mat_SciFi_Beast06_Body_Skin2.mat",
+      "bytes": 2454,
+      "sha256": "d319cef1ff24f858fa3c483832bcefa0f9af4c37460a3e0510eeff2932759b7b",
+      "archived_path": "source/unity/Materials/Skin2/Mat_SciFi_Beast06_Body_Skin2.mat"
+    },
+    {
+      "guid": "4cf05e338a72a4447ac42f67d9a55808",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@Turn180.fbx",
+      "bytes": 2063168,
+      "sha256": "6c42e6c9e833ad23a19c1eb31d932b133d73d1877b510a144b4304fac1f1f1db",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@Turn180.fbx"
+    },
+    {
+      "guid": "4d796772b8ee4664a85833e9fe0ab4ee",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin1/T_Mat_SciFi_Beast06_Armor_Normal_Skin1.tga",
+      "bytes": 50331692,
+      "sha256": "1897631db7ff7250d99150de9b38c010404073f2a4cd746372d47eb66c5b7d54",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/skin1/armor_normal_skin1.png"
+    },
+    {
+      "guid": "4e95461ed4b4f0e4ca7f576f15fd9f3d",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@Attack5.fbx",
+      "bytes": 1616864,
+      "sha256": "5b15ef7dad7e2dcc935114ba18317c6962800664a5c0e40f1b0069955a2afed6",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@Attack5.fbx"
+    },
+    {
+      "guid": "4f5da7e007d7fac4e9361510e85b8d7b",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@Death2.fbx",
+      "bytes": 1256624,
+      "sha256": "19cc4515680d0037f093aca08e175becfd4125b5715c854b80c86bdd4e8ab98c",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@Death2.fbx"
+    },
+    {
+      "guid": "5197e088413b7bb4b99e5aa194c20588",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@Run.fbx",
+      "bytes": 1096576,
+      "sha256": "90ec77fa89d86f7b35cea72d77706af3117b7a25e079c0b8a205ce73e4df7fcb",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@Run.fbx"
+    },
+    {
+      "guid": "523ec961e7a1d6746ad66730ecb20ca8",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin1/T_Mat_SciFi_Beast06_Body_AO_Skin1.tga",
+      "bytes": 12582956,
+      "sha256": "6311c48becb26fc48906fed955cbcbd294ea498d33ecae565b3a50e1ac8624b0",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/shared/body_ao_skin1.png"
+    },
+    {
+      "guid": "52ab010eb338b434ca88692f8e0f25a2",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@JumpLoop.fbx",
+      "bytes": 1116272,
+      "sha256": "fe5dc8c66e669255f0670fbfb6e4e0c064106d1c2123ef231eb7213b8672107f",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@JumpLoop.fbx"
+    },
+    {
+      "guid": "56006247bdd19de44adea6e5aab78bff",
+      "unity_path": "Assets/SciFi Beast06 Bull/Mesh/SciFi Beast06 Bull Skin2.fbx",
+      "bytes": 3018000,
+      "sha256": "e1a3abdcf6357a5414c3b0e98b1179c4687c5c0b4332d58918655da8af8a17d3",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/models/beast06_bull.scn",
+      "archived_path": "source/models/beast06_bull.fbx"
+    },
+    {
+      "guid": "59c0f24f16c2f94498cb5eaf56b05ac7",
+      "unity_path": "Assets/SciFi Beast06 Bull/Materials/Skin1/Mat_SciFi_Beast06_Body_Skin1.mat",
+      "bytes": 2454,
+      "sha256": "b3fdc10cb65e11a15f909076ebe2f7942de6a2b0c9bb7a4eb5ec54bb2e72c4e5",
+      "archived_path": "source/unity/Materials/Skin1/Mat_SciFi_Beast06_Body_Skin1.mat"
+    },
+    {
+      "guid": "5aeaf0b560c771545ac29c7b6823d3d1",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@JumpStart.fbx",
+      "bytes": 910896,
+      "sha256": "626cafc2f79d1d30350230e9b25ffdd54df61fc3bfca4007b744a53448e9a512",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@JumpStart.fbx"
+    },
+    {
+      "guid": "61fc6517ed788184385e25856876694b",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@WalkL.fbx",
+      "bytes": 1133488,
+      "sha256": "4aa777de6813b7dbd90ebeb5b9a890324dbcf8ceeef23445b112eca84c084aac",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@WalkL.fbx"
+    },
+    {
+      "guid": "678852d7c27e08a4c8d0072f53d4c521",
+      "unity_path": "Assets/SciFi Beast06 Bull/Mesh/SciFi Beast06 Bull Skin1.fbx",
+      "bytes": 3018000,
+      "sha256": "e1a3abdcf6357a5414c3b0e98b1179c4687c5c0b4332d58918655da8af8a17d3",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/models/beast06_bull.scn",
+      "archived_path": "source/models/beast06_bull.fbx"
+    },
+    {
+      "guid": "680437506472181458c57f72de7e95e9",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin3/T_Mat_SciFi_Beast06_Armor_BaseColor_Skin3.tga",
+      "bytes": 67108908,
+      "sha256": "1acf1ba160564aaa0f8e591d9d9fc8bf26a1164cc2ef557c7e9384411f9104ec",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/skin3/armor_basecolor_skin3.png"
+    },
+    {
+      "guid": "6e0b2a1747b13744d8a197b8dd849dde",
+      "unity_path": "Assets/SciFi Beast06 Bull/SciFi Beast06 Bull Animator Controller.controller",
+      "bytes": 41500,
+      "sha256": "067be32b7812e9eaf5423531dce9ab9b43643404e7b64edcf8799a11532ea47d",
+      "archived_path": "source/unity/SciFi Beast06 Bull Animator Controller.controller"
+    },
+    {
+      "guid": "75ae68542ac75a64a881ca42043e454d",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@Attack6.fbx",
+      "bytes": 1060976,
+      "sha256": "10a2dd445dafe2dd5020b6973b5d011596e15bad464445b3ff74b13e8a032af0",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@Attack6.fbx"
+    },
+    {
+      "guid": "7c366a1837457a54f8a656e0548b8e5b",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin1/T_Mat_SciFi_Beast06_Armor_Emissive_Skin1.tga",
+      "bytes": 12582956,
+      "sha256": "cc2cd1846a43b70e495b6428de17bb576e3af6a68bb947f57ab7d0d4f47e378e",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/skin1/armor_emissive_skin1.png"
+    },
+    {
+      "guid": "7cf539477111a3443a803e6bee9ef312",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin3/T_Mat_SciFi_Beast06_Armor_Normal_Skin3.tga",
+      "bytes": 50331692,
+      "sha256": "b2b2f83c6627ed7cdc92462cf2734397e3178453fbc1409ca665ef95d8acf04f",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/skin3/armor_normal_skin3.png"
+    },
+    {
+      "guid": "83a11c5fdebd9484e877d1a5107ceac9",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin1/T_Mat_SciFi_Beast06_Body_Normal_Skin1.tga",
+      "bytes": 50331692,
+      "sha256": "eb6e3a9e79b4ef55a8d54f8abd6bc1cea11aa4a86ac1754baa92e56bc7df593b",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/skin1/body_normal_skin1.png"
+    },
+    {
+      "guid": "83ac36c6b3b66a04e8d8d61187746468",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@Death1.fbx",
+      "bytes": 1367584,
+      "sha256": "6ff798d3b08466cffecd7eca23e460361060c617a2499c42d07748b72572662c",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@Death1.fbx"
+    },
+    {
+      "guid": "842a650d848671841b367c72380f36d1",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin2/T_Mat_SciFi_Beast06_Armor_BaseColor_Skin2.tga",
+      "bytes": 67108908,
+      "sha256": "eedac60291ffbf959b3741702fc56c2316e031c818d914032fea3509b11c613b",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/skin2/armor_basecolor_skin2.png"
+    },
+    {
+      "guid": "872cca9cac5952640bbf22b90bf0e6ce",
+      "unity_path": "Assets/SciFi Beast06 Bull/Prefab/SciFi Beast06 Bull Skin1.prefab",
+      "bytes": 114441,
+      "sha256": "34fadd70c0c4367717532573242914f6981e21c59dbe16f2996be78b3c7dbd05",
+      "archived_path": "source/unity/Prefab/SciFi Beast06 Bull Skin1.prefab"
+    },
+    {
+      "guid": "8a6a2f2a54744de4caa2578c9f2d697a",
+      "unity_path": "Assets/SciFi Beast06 Bull/Materials/Skin2/Mat_SciFi_Beast06_Armor_Skin2.mat",
+      "bytes": 2455,
+      "sha256": "aa46b81067b17eb2961794cc7215c7b87c7db42074fe3b4f5441b0ab3ef2b262",
+      "archived_path": "source/unity/Materials/Skin2/Mat_SciFi_Beast06_Armor_Skin2.mat"
+    },
+    {
+      "guid": "8cb9cb89c93f7e24b800af01195d42fc",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin2/T_Mat_SciFi_Beast06_Body_BaseColor_Skin2.tga",
+      "bytes": 50331692,
+      "sha256": "da4046d2144de2d8921efc30496a565c3a5b732650a5b6558bbbf6bde3ec9105",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/skin2/body_basecolor_skin2.png"
+    },
+    {
+      "guid": "8d9b4e5c060613549b744a4453ddb31f",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@GetHitR.fbx",
+      "bytes": 929920,
+      "sha256": "177ec60624fa521bc48b866f177373049dd610ff16ca629661d18fd1627fc7f8",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@GetHitR.fbx"
+    },
+    {
+      "guid": "8f71019ff031f5144a5f872f29941176",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@GetHitL2.fbx",
+      "bytes": 930000,
+      "sha256": "a4791bdb2e8003cd424851de8f10a26d214649bac6ad9932aebfcd1e02ea5b96",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@GetHitL2.fbx"
+    },
+    {
+      "guid": "91d5a4e1ca119c544be7e61932962e65",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@GetHitF2.fbx",
+      "bytes": 928208,
+      "sha256": "c0b1419b570f3d90778c5bdbe7f65f6dd790d2739bf6c936e51436c547812ad3",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@GetHitF2.fbx"
+    },
+    {
+      "guid": "9b4b1edc662890a498dc476046d9b464",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@GetHitF.fbx",
+      "bytes": 928368,
+      "sha256": "bdbea81df17e26e6e46a5ab4a75cbdf869de5b51363bbae6ddaf80a8b06c712a",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@GetHitF.fbx"
+    },
+    {
+      "guid": "9b6af866dfe7d4644a7a8356ca39060f",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin3/T_Mat_SciFi_Beast06_Armor_MetalGloss_Skin3.tga",
+      "bytes": 16777260,
+      "sha256": "d5a3d9f23a5f0d6adbe6d427b408a0e84049ae419e5ad51fc897905d3125c2b2",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/skin3/armor_metalgloss_skin3.png"
+    },
+    {
+      "guid": "af405e1fd620bf843b6af3d34963be19",
+      "unity_path": "Assets/SciFi Beast06 Bull/Materials/Skin3/Mat_SciFi_Beast06_Body_Skin3.mat",
+      "bytes": 2454,
+      "sha256": "f3c6d72d15b6d7099a92e322b53cd6681c16ba8ea6e447e91ce9178e916eec02",
+      "archived_path": "source/unity/Materials/Skin3/Mat_SciFi_Beast06_Body_Skin3.mat"
+    },
+    {
+      "guid": "bcd8311f3cc123e46842998d1325c216",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@WalkF.fbx",
+      "bytes": 1189360,
+      "sha256": "81b42b23c1738cf2af4e74a3425742d9edb5e8863c22710c411d08b6c10f1dca",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@WalkF.fbx"
+    },
+    {
+      "guid": "bd974c8b221d1e5418f7bacf50fa1745",
+      "unity_path": "Assets/SciFi Beast06 Bull/Mesh/SciFi Beast06 Bull Skin3.fbx",
+      "bytes": 3018000,
+      "sha256": "e1a3abdcf6357a5414c3b0e98b1179c4687c5c0b4332d58918655da8af8a17d3",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/models/beast06_bull.scn",
+      "archived_path": "source/models/beast06_bull.fbx"
+    },
+    {
+      "guid": "c042312aea6dab646b891da62e5d883a",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin3/T_Mat_SciFi_Beast06_Body_MetalGloss_Skin3.tga",
+      "bytes": 16777260,
+      "sha256": "2b6c2e863f41ec29cdf77d46833e9e3d89fa50139ed92adf949491d6b1cdb3d2",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/skin3/body_metalgloss_skin3.png"
+    },
+    {
+      "guid": "c4fa2c2f570bd26478ba39ba5598f9d2",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin2/T_Mat_SciFi_Beast06_Armor_Normal_Skin2.tga",
+      "bytes": 50331692,
+      "sha256": "77ef5e394a3859bf0aa408cd815f68f36daae8fbdc96b6d3c29b3a290610f410",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/skin2/armor_normal_skin2.png"
+    },
+    {
+      "guid": "c74e17c4c0ea2324b8d579ffc7c52919",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin3/T_Mat_SciFi_Beast06_Armor_Emissive_Skin3.tga",
+      "bytes": 12582956,
+      "sha256": "5b9ca47903d72f47a2dde38a4319ee9eab80b4115ba1d516886ce0c3b0fdf502",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/skin3/armor_emissive_skin3.png"
+    },
+    {
+      "guid": "c84587de8b63cea4f9a768bb403aefa9",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin3/T_Mat_SciFi_Beast06_Body_Normal_Skin3.tga",
+      "bytes": 50331692,
+      "sha256": "4fa0c304f5a99279ea8f218e56ca616e74104c3ac5286c532928651e3656309d",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/skin3/body_normal_skin3.png"
+    },
+    {
+      "guid": "c9345167731d8264c92d352d3b4af94a",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@WalkR.fbx",
+      "bytes": 1133552,
+      "sha256": "14a9a0a2256d078bf1c79f8b24c045da172f3a9c9bad70224b994c4135c4c4fd",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@WalkR.fbx"
+    },
+    {
+      "guid": "ccabf420947913345b3e37093f352759",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@GetHitR2.fbx",
+      "bytes": 929952,
+      "sha256": "bf1590e5d52e3754ad443846fd81663aea5edcb22d38fa15d6843af23dc23f2f",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@GetHitR2.fbx"
+    },
+    {
+      "guid": "d1400eb3c2389b34e92b752059afefbd",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@Rage.fbx",
+      "bytes": 1361296,
+      "sha256": "3b48a9e039b9e4cf0a809a71ed52696cf0a3d056f34ad378b1afd58bbccaf69e",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@Rage.fbx"
+    },
+    {
+      "guid": "dcfa18da2cd1b3048828608f62c3ff9a",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin1/T_Mat_SciFi_Beast06_Body_Emissive_Skin1.tga",
+      "bytes": 12582956,
+      "sha256": "869cd8d4b57abe5bffa3547b5b810d38951d343c999bd0b7d6720d77b50150cd",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/skin1/body_emissive_skin1.png"
+    },
+    {
+      "guid": "ea55b499e42bd2b499fb2942ac5f119c",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@GetHitB2.fbx",
+      "bytes": 929936,
+      "sha256": "6eb7fdf4b72ad486d5ee57755fcad254c5753ce73239857738e7542656b90b67",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@GetHitB2.fbx"
+    },
+    {
+      "guid": "ec2df2edccb4cde45968b81b09437632",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@GetHitB.fbx",
+      "bytes": 1136592,
+      "sha256": "11803f694a8d460bc45d47908f00a11bfbb6d9cbbf6a3ff257d59356e657556e",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@GetHitB.fbx"
+    },
+    {
+      "guid": "f37db1196fe3a104eb7c8c3e12366f6d",
+      "unity_path": "Assets/SciFi Beast06 Bull/Textures/Skin2/T_Mat_SciFi_Beast06_Armor_MetalGloss_Skin2.tga",
+      "bytes": 16777260,
+      "sha256": "74a218703c7cb9423c814feec907f84590a7d5efaf7c44274af27815928b2a90",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/textures/skin2/armor_metalgloss_skin2.png"
+    },
+    {
+      "guid": "f64dc01be186b634b955e17c77e5ac85",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@WalkF2.fbx",
+      "bytes": 1150816,
+      "sha256": "ba973633fc3485675a59668400a125ac5c580b0f6262e1b7f2c20c690e0de7e1",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@WalkF2.fbx"
+    },
+    {
+      "guid": "f9566a31cd2300a458ed05e23f2c5bc2",
+      "unity_path": "Assets/SciFi Beast06 Bull/Animations/SciFi_Beast06@JumpEnd.fbx",
+      "bytes": 1073072,
+      "sha256": "1f672d4cd3a0188a694b5b341a65c67fb9fd2845c4a1a7bb199d879ef9628e58",
+      "godot_path": "res://resources/characters/scifi_beast06_bull/animations/beast06_animations.res",
+      "archived_path": "source/animations/SciFi_Beast06@JumpEnd.fbx"
+    },
+    {
+      "guid": "f9f63400a3701744f8a41432a1c85a62",
+      "unity_path": "Assets/SciFi Beast06 Bull/Materials/Skin3/Mat_SciFi_Beast06_Armor_Skin3.mat",
+      "bytes": 2455,
+      "sha256": "9e3a3b32059caa9dbdbae497c763ee13bb32c1a401ed2416eb015b8f3cb028d2",
+      "archived_path": "source/unity/Materials/Skin3/Mat_SciFi_Beast06_Armor_Skin3.mat"
+    }
+  ]
+}

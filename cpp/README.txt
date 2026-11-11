@@ -1,12 +1,33 @@
 ProjectH C++ / Godot 4.7 GDExtension
 
+Current framework:
+  Main scene: scenes/main.tscn, root native node: EntryPoint.
+  IGameSystem defines Init(), Update(double delta), Release().
+  EntryPoint calls GameInput then GameCamera each frame and releases in reverse.
+  Hold right mouse to look/move; WASD moves, Q/E down/up, Shift moves faster.
+  Release right mouse or press Escape to free the cursor.
+  Input bindings are in Project Settings > Input Map (camera_* actions).
+  Camera movement uses camera-local axes and has no collision.
+  Details: ../docs/implementation/framework.md
+  Test: godot_console.exe --headless --path . --script tests/framework_test.gd
+
+VS Code:
+  1. Open the project root folder and install Microsoft's C/C++ extension.
+  2. Ctrl+Shift+B builds the Debug GDExtension using cpp/build.ps1.
+  3. F5 builds first, then launches the main scene with the native C++ debugger.
+     Set breakpoints in cpp/src/voxel_terrain.cpp. Shift+F5 stops debugging.
+  Stop the running game before rebuilding. Godot's own F5 does not build C++.
+  If Godot is moved, update program in .vscode/launch.json.
+
 Visual Studio:
   1. Open ../ProjectH.sln (Visual Studio 2026, C++ desktop workload).
   2. Select Debug | x64 and Build Solution (Ctrl+Shift+B).
-  3. Press F5 to debug the terrain demo. Set breakpoints in voxel_terrain.cpp.
+  3. Press F5 to debug the main scene. Set breakpoints in entry_point.cpp.
 
 Godot:
-  Open project.godot, then press F5 for the Marching Cubes terrain demo.
+  Open project.godot, then press F5 for the framework scene.
+  Existing demos remain available separately:
+  Open voxel_demo.tscn and press F6 for the Marching Cubes terrain demo.
   Hold left mouse to dig, right mouse to build.
   Q/E: brush radius. Middle mouse drag: orbit. Shift + middle drag: pan.
   Wheel: zoom. F: reset camera. R: reset edits. N: generate next seed.

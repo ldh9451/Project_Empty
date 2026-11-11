@@ -1,0 +1,25 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://resources/characters/scifi_beast06_bull/textures/skin2/body_basecolor_skin2.png" id="1_rlls8"]
+[ext_resource type="Texture2D" path="res://resources/characters/scifi_beast06_bull/textures/shared/body_ao_skin1.png" id="2_jklyd"]
+[ext_resource type="Texture2D" path="res://resources/characters/scifi_beast06_bull/textures/skin2/body_emissive_skin2.png" id="3_pv3ok"]
+[ext_resource type="Texture2D" path="res://resources/characters/scifi_beast06_bull/textures/skin2/body_metalgloss_skin2.png" id="4_nwgaq"]
+[ext_resource type="Texture2D" path="res://resources/characters/scifi_beast06_bull/textures/skin2/body_normal_skin2.png" id="5_iy1ke"]
+[ext_resource type="Texture2D" path="res://resources/characters/scifi_beast06_bull/textures/skin2/body_roughness_skin2.png" id="6_0wjr4"]
+
+[resource]
+resource_name = "Mat_SciFi_Beast06_Body_Skin2"
+albedo_color = Color(0.8, 0.8, 0.8, 1)
+albedo_texture = ExtResource("1_rlls8")
+metallic = 1.0
+metallic_texture = ExtResource("4_nwgaq")
+roughness_texture = ExtResource("6_0wjr4")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("3_pv3ok")
+normal_enabled = true
+normal_texture = ExtResource("5_iy1ke")
+ao_enabled = true
+ao_texture = ExtResource("2_jklyd")
+ao_texture_channel = 1

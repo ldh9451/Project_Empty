@@ -1,0 +1,74 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://resources/characters/scifi_beast06_bull/scenes/beast06_bull_skin1.tscn" id="1_837w1"]
+[ext_resource type="PackedScene" path="res://resources/characters/scifi_beast06_bull/scenes/beast06_bull_skin2.tscn" id="2_4vhcs"]
+[ext_resource type="PackedScene" path="res://resources/characters/scifi_beast06_bull/scenes/beast06_bull_skin3.tscn" id="3_ts11o"]
+
+[sub_resource type="Environment" id="Environment_kcfki"]
+background_mode = 1
+background_color = Color(0.045, 0.055, 0.075, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.75, 0.82, 1, 1)
+ambient_light_energy = 0.65
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4uuc"]
+albedo_color = Color(0.1, 0.12, 0.16, 1)
+roughness = 0.85
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_76lu3"]
+size = Vector2(200, 200)
+
+[node name="Beast06BullPreview" type="Node3D" unique_id=1057830735]
+
+[node name="Skin1" type="Node3D" parent="." unique_id=919774741 instance=ExtResource("1_837w1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1, 0, 0)
+
+[node name="Skin1Label" type="Label3D" parent="." unique_id=2006043461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1, 0.12, 1.2)
+pixel_size = 0.006
+billboard = 1
+text = "SKIN 01"
+font_size = 48
+
+[node name="Skin2" type="Node3D" parent="." unique_id=740884237 instance=ExtResource("2_4vhcs")]
+
+[node name="Skin2Label" type="Label3D" parent="." unique_id=971175799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12, 1.2)
+pixel_size = 0.006
+billboard = 1
+text = "SKIN 02"
+font_size = 48
+
+[node name="Skin3" type="Node3D" parent="." unique_id=57795464 instance=ExtResource("3_ts11o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, 0, 0)
+
+[node name="Skin3Label" type="Label3D" parent="." unique_id=329460479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, 0.12, 1.2)
+pixel_size = 0.006
+billboard = 1
+text = "SKIN 03"
+font_size = 48
+
+[node name="Camera" type="Camera3D" parent="." unique_id=419621856]
+transform = Transform3D(0.9828722, -0.03554615, 0.18082792, 0, 0.98122174, 0.19288313, -0.18428853, -0.18957947, 0.96441555, 1.5, 2.5, 8)
+projection = 1
+current = true
+size = 4.3
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1381921200]
+environment = SubResource("Environment_kcfki")
+
+[node name="KeyLight" type="DirectionalLight3D" parent="." unique_id=1588792261]
+transform = Transform3D(0.81915206, 0.3686878, -0.43938506, 0, 0.76604444, 0.6427876, 0.57357645, -0.52654076, 0.62750685, 0, 0, 0)
+light_energy = 1.8
+shadow_enabled = true
+
+[node name="RimLight" type="DirectionalLight3D" parent="." unique_id=2114365125]
+transform = Transform3D(-0.8660254, -0.21130916, 0.45315394, 0, 0.90630776, 0.42261827, -0.50000006, 0.36599815, -0.7848855, 0, 0, 0)
+light_color = Color(0.55, 0.72, 1, 1)
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=973602757]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.015, 0)
+material_override = SubResource("StandardMaterial3D_h4uuc")
+mesh = SubResource("PlaneMesh_76lu3")

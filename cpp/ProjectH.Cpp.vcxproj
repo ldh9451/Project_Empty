@@ -27,7 +27,7 @@
     <NMakePreprocessorDefinitions>WINDOWS_ENABLED;TYPED_METHOD_BIND;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
     <NMakePreprocessorDefinitions Condition="'$(Configuration)'=='Debug'">DEBUG_ENABLED;DEBUG_METHODS_ENABLED;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
     <LocalDebuggerCommand>C:\Users\건강행복사랑\Downloads\Godot_v4.7.2-stable_win64.exe\Godot_v4.7.2-stable_win64.exe</LocalDebuggerCommand>
-    <LocalDebuggerCommandArguments>--path "$(ProjectDir).." res://voxel_demo.tscn</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>--path "$(ProjectDir).."</LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory>$(ProjectDir)..</LocalDebuggerWorkingDirectory>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <OutDir>$(ProjectDir)..\bin\</OutDir>
@@ -35,6 +35,13 @@
   </PropertyGroup>
   <ItemDefinitionGroup><ClCompile><LanguageStandard>stdcpp17</LanguageStandard></ClCompile></ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\game_system.h" />
+    <ClInclude Include="src\entry_point.h" />
+    <ClInclude Include="src\game_input.h" />
+    <ClInclude Include="src\game_camera.h" />
+    <ClCompile Include="src\entry_point.cpp" />
+    <ClCompile Include="src\game_input.cpp" />
+    <ClCompile Include="src\game_camera.cpp" />
     <ClInclude Include="src\cpp_example.h" />
     <ClInclude Include="src\voxel_terrain.h" />
     <ClInclude Include="src\marching_cubes_table.h" />

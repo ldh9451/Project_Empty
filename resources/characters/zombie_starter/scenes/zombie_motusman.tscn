@@ -1,0 +1,16 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://resources/characters/zombie_starter/models/motusman.scn" id="1_model"]
+[ext_resource type="AnimationLibrary" path="res://resources/characters/zombie_starter/animations/rest.res" id="2_rest"]
+[ext_resource type="AnimationLibrary" path="res://resources/characters/zombie_starter/animations/in_place.res" id="3_in_place"]
+[ext_resource type="AnimationLibrary" path="res://resources/characters/zombie_starter/animations/root_motion.res" id="4_root_motion"]
+
+[node name="ZombieMotusMan" instance=ExtResource("1_model")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": ExtResource("2_rest"),
+&"in_place": ExtResource("3_in_place"),
+&"root_motion": ExtResource("4_root_motion")
+}
+autoplay = "in_place/Zombie_Idle_1_v2"

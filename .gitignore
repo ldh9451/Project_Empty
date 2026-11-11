@@ -16,3 +16,4 @@
 /bin/*.exp
 /bin/*.pdb
 /bin/*.ilk
+/bin/*.TMP
