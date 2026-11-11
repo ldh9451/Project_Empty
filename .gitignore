@@ -1,3 +1,18 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# Visual Studio and local C++ build products
+.vs/
+*.vcxproj.user
+/cpp/.venv/
+/cpp/.cache/
+/cpp/godot-cpp/
+/cpp/.sconsign*
+/cpp/src/*.obj
+/cpp/src/*.os
+/bin/*.dll
+/bin/*.lib
+/bin/*.exp
+/bin/*.pdb
+/bin/*.ilk

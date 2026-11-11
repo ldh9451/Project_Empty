@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64"><Configuration>Debug</Configuration><Platform>x64</Platform></ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64"><Configuration>Release</Configuration><Platform>x64</Platform></ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E0F97F00-71CD-4819-B080-68CD5E62D645}</ProjectGuid>
+    <Keyword>MakeFileProj</Keyword>
+    <RootNamespace>ProjectHCpp</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup>
+    <NMakeBuildCommandLine>powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$(ProjectDir)build.ps1" -Configuration $(Configuration)</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$(ProjectDir)build.ps1" -Configuration $(Configuration) -Rebuild</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$(ProjectDir)build.ps1" -Configuration $(Configuration) -Clean</NMakeCleanCommandLine>
+    <GodotBuildTarget Condition="'$(Configuration)'=='Debug'">template_debug</GodotBuildTarget>
+    <GodotBuildTarget Condition="'$(Configuration)'=='Release'">template_release</GodotBuildTarget>
+    <NMakeOutput>$(ProjectDir)..\bin\project_h.windows.$(GodotBuildTarget).x86_64.dll</NMakeOutput>
+    <NMakeIncludeSearchPath>$(ProjectDir)src;$(ProjectDir)godot-cpp\include;$(ProjectDir)godot-cpp\gen\include;$(ProjectDir)godot-cpp\gdextension;$(ProjectDir).cache\sdk-headers\c\Include\10.0.26100.0\ucrt;$(ProjectDir).cache\sdk-headers\c\Include\10.0.26100.0\shared;$(ProjectDir).cache\sdk-headers\c\Include\10.0.26100.0\um;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakePreprocessorDefinitions>WINDOWS_ENABLED;TYPED_METHOD_BIND;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakePreprocessorDefinitions Condition="'$(Configuration)'=='Debug'">DEBUG_ENABLED;DEBUG_METHODS_ENABLED;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <LocalDebuggerCommand>C:\Users\건강행복사랑\Downloads\Godot_v4.7.2-stable_win64.exe\Godot_v4.7.2-stable_win64.exe</LocalDebuggerCommand>
+    <LocalDebuggerCommandArguments>--path "$(ProjectDir).." res://voxel_demo.tscn</LocalDebuggerCommandArguments>
+    <LocalDebuggerWorkingDirectory>$(ProjectDir)..</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <OutDir>$(ProjectDir)..\bin\</OutDir>
+    <IntDir>$(ProjectDir).cache\vs\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup><ClCompile><LanguageStandard>stdcpp17</LanguageStandard></ClCompile></ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="src\cpp_example.h" />
+    <ClInclude Include="src\voxel_terrain.h" />
+    <ClInclude Include="src\marching_cubes_table.h" />
+    <ClCompile Include="src\voxel_terrain.cpp" />
+    <ClCompile Include="src\cpp_example.cpp" />
+    <ClCompile Include="src\register_types.cpp" />
+    <None Include="SConstruct" /><None Include="build.ps1" /><None Include="setup.ps1" /><None Include="windows-sdk.ps1" />
+    <None Include="build_profile.json" /><None Include="..\bin\project_h.gdextension" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

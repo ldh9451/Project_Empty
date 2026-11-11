@@ -1,0 +1,23 @@
+#!/usr/bin/env python
+import os
+
+# build.ps1 supplies the compiler environment, including the local Windows SDK.
+# Avoid running MSVC discovery scripts a second time inside SCons.
+DefaultEnvironment(tools=[], MSVC_USE_SCRIPT=False)
+env = Environment(tools=["default"], PLATFORM="", ENV=dict(os.environ), MSVC_USE_SCRIPT=False)
+# Store debug information in object files; this avoids compiler PDB-server
+# coordination problems when MSVC is launched from a restricted process.
+if ARGUMENTS.get("target", "template_debug") == "template_debug":
+    env.Append(CCFLAGS=["/Z7"])
+    env.Append(LINKFLAGS=["/DEBUG:FULL"])
+env = SConscript("godot-cpp/SConstruct", {"api_version": "4.7", "env": env})
+if env["target"] == "template_debug":
+    env.AppendUnique(CCFLAGS=["/Z7"])
+    env.AppendUnique(LINKFLAGS=["/DEBUG:FULL", '/PDB:"../bin/project_h.windows.template_debug.x86_64.pdb"'])
+env.Append(CPPPATH=["src"])
+library = env.SharedLibrary(
+    "../bin/project_h{}{}".format(env["suffix"], env["SHLIBSUFFIX"]),
+    source=Glob("src/*.cpp"),
+)
+env.NoCache(library)
+Default(library)
