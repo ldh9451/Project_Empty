@@ -21,6 +21,8 @@ namespace
         result.instantiate();
         result->set_albedo(color);
         result->set_roughness(0.7f);
+        result->set_diffuse_mode(BaseMaterial3D::DIFFUSE_TOON);
+        result->set_specular_mode(BaseMaterial3D::SPECULAR_DISABLED);
         result->set_cull_mode(BaseMaterial3D::CULL_DISABLED);
         if (unshaded)
             result->set_shading_mode(BaseMaterial3D::SHADING_MODE_UNSHADED);
@@ -30,6 +32,13 @@ namespace
     Vector3 world(meltdown::Vec value, float y = 0)
     {
         return Vector3(value.x, y, value.z);
+    }
+
+    Color heat_color(int tier)
+    {
+        const Color colors[] = {Color(0.33, 0.77, 0.86), Color(0.95, 0.7, 0.25),
+            Color(1, 0.35, 0.12), Color(1, 0.17, 0.08), Color(1, 0.94, 0.76)};
+        return colors[tier];
     }
 
     Ref<AudioStreamWAV> tone(float frequency, float duration)
@@ -57,6 +66,10 @@ namespace
 void MeltdownArena::_bind_methods()
 {
     ClassDB::bind_method(D_METHOD("get_snapshot"), &MeltdownArena::get_snapshot);
+    ClassDB::bind_method(D_METHOD("set_dungeon_material", "material"), &MeltdownArena::set_dungeon_material);
+    ClassDB::bind_method(D_METHOD("get_dungeon_material"), &MeltdownArena::get_dungeon_material);
+    ADD_PROPERTY(PropertyInfo(Variant::OBJECT, "dungeon_material", PROPERTY_HINT_RESOURCE_TYPE, "Material"),
+        "set_dungeon_material", "get_dungeon_material");
     ClassDB::bind_method(D_METHOD("restart"), &MeltdownArena::restart);
     ClassDB::bind_method(D_METHOD("set_training", "enabled"), &MeltdownArena::set_training);
     ClassDB::bind_method(D_METHOD("set_muted", "enabled"), &MeltdownArena::set_muted);
@@ -223,7 +236,7 @@ void MeltdownArena::_ready()
     white = material(Color(1.0, 0.94, 0.76), true);
     pink = material(Color(1.0, 0.12, 0.42), true);
     gold = material(Color(0.96, 0.63, 0.27));
-    warning_material = material(Color(1, 0.22, 0.38, 0.24f), true);
+    warning_material = material(Color(0.85, 0.06, 0.24, 0.38f), true);
     warning_material->set_transparency(BaseMaterial3D::TRANSPARENCY_ALPHA);
     environment_active_material = material(Color(1, 0.65, 0.12, 0.6f), true);
     environment_active_material->set_transparency(BaseMaterial3D::TRANSPARENCY_ALPHA);
@@ -238,15 +251,7 @@ void MeltdownArena::_ready()
     heat_ring_material = material(Color(1, 0.8, 0.3), true);
     steam_material = material(Color(0.65, 0.95, 1, 0.3f), true);
     steam_material->set_transparency(BaseMaterial3D::TRANSPARENCY_ALPHA);
-    const auto floor = material(Color(0.08, 0.10, 0.13));
-    const auto line = material(Color(0.16, 0.21, 0.25));
     const float half = meltdown::arena_half_size;
-    box(this, Vector3(0, -0.15, 0), Vector3(half * 2, 0.3, half * 2), floor);
-    for (int i = -static_cast<int>(half) + 2; i <= half - 2; i += 2)
-    {
-        box(this, Vector3(i, 0.01, 0), Vector3(0.025, 0.02, half * 2 - 1), line);
-        box(this, Vector3(0, 0.01, i), Vector3(half * 2 - 1, 0.02, 0.025), line);
-    }
     for (int side : {-1, 1})
     {
         box(this, Vector3(side * (half - 0.3f), 0.2, 0), Vector3(0.2, 0.4, half * 2 - 0.4f), cyan);
@@ -327,6 +332,7 @@ void MeltdownArena::_exit_tree()
 
 void MeltdownArena::restart()
 {
+    clear_dungeon_visuals();
     clear_environment_visuals();
     simulation.reset(practice);
     paused = false;
@@ -569,7 +575,18 @@ void MeltdownArena::draw_charge(MeshInstance3D *target, const meltdown::Enemy &e
 
 void MeltdownArena::present()
 {
+    present_dungeon();
     present_environment();
+    present_player();
+    present_enemies();
+    present_attacks();
+    present_projectiles();
+    present_fragments();
+    present_hud();
+}
+
+void MeltdownArena::present_player()
+{
     player->set_position(world(simulation.player));
     camera->set_position(camera_offset + world(simulation.player));
     const auto facing = simulation.attack.pending ? simulation.attack.direction :
@@ -577,9 +594,7 @@ void MeltdownArena::present()
     player->set_rotation(Vector3(0, std::atan2(-facing.x, -facing.z), 0));
     weapon_pivot->set_rotation(Vector3(0, simulation.attack.pending ? -0.9f :
         simulation.slash.life > 0 ? (0.5f - simulation.slash.life / 0.14f) * 2.2f : 0, 0));
-    const Color heat_colors[] = {Color(0.33, 0.77, 0.86), Color(0.95, 0.7, 0.25),
-        Color(1, 0.35, 0.12), Color(1, 0.17, 0.08), Color(1, 0.94, 0.76)};
-    const Color current_color = heat_colors[simulation.heat.tier()];
+    const Color current_color = heat_color(simulation.heat.tier());
     player_material->set_albedo(current_color);
     const bool overdrive = simulation.heat.mode == meltdown::HeatMode::Overdrive;
     const bool cooling = simulation.heat.mode == meltdown::HeatMode::Cooling;
@@ -617,6 +632,10 @@ void MeltdownArena::present()
     steam_material->set_albedo(ignition ? Color(1, 0.85, 0.45, steam_left) : Color(0.65, 0.95, 1, steam_left));
     player_body->set_material_override(simulation.hurt_left > 0 && static_cast<int>(simulation.hurt_left * 30) % 2 ? white :
         simulation.dash_left > 0 ? white : player_material);
+}
+
+void MeltdownArena::present_enemies()
+{
     for (auto it = enemy_meshes.begin(); it != enemy_meshes.end();)
     {
         const bool alive = std::any_of(simulation.enemies.begin(), simulation.enemies.end(),
@@ -689,6 +708,11 @@ void MeltdownArena::present()
             draw_sector(warning, enemy.position, enemy.direction, enemy.kind == 1 ? 1.6f : enemy.kind == 3 ? 6.0f : 1.4f,
                 enemy.kind == 1 ? 110.0f : enemy.kind == 3 ? 42.0f : 360.0f);
     }
+}
+
+void MeltdownArena::present_attacks()
+{
+    const Color current_color = heat_color(simulation.heat.tier());
     attack_mesh->set_visible(simulation.attack.pending || simulation.slash.life > 0);
     if (simulation.attack.pending)
     {
@@ -710,6 +734,10 @@ void MeltdownArena::present()
         draw_ring(vent_ring, simulation.vent_position, meltdown::vent_radius * (0.2f + 0.8f * progress), 0.18f, 1);
         vent_ring_material->set_albedo(Color(0.65, 1, 1, 1 - progress));
     }
+}
+
+void MeltdownArena::present_projectiles()
+{
     for (auto it = projectile_meshes.begin(); it != projectile_meshes.end();)
     {
         if (std::none_of(simulation.projectiles.begin(), simulation.projectiles.end(),
@@ -733,6 +761,10 @@ void MeltdownArena::present()
         mesh->set_position(world(projectile.position, 0.6f));
         mesh->set_rotation(Vector3(0, simulation.elapsed * 5, 0));
     }
+}
+
+void MeltdownArena::present_fragments()
+{
     for (auto it = fragment_meshes.begin(); it != fragment_meshes.end();)
     {
         if (std::none_of(simulation.fragments.begin(), simulation.fragments.end(),
@@ -755,6 +787,12 @@ void MeltdownArena::present()
         mesh->set_position(world(fragment.position, 0.2f + std::sin(fragment.life / 0.45f * meltdown::pi) * 0.6f));
         mesh->set_rotation(Vector3(fragment.life * 9, fragment.life * 15, 0));
     }
+}
+
+void MeltdownArena::present_hud()
+{
+    const bool overdrive = simulation.heat.mode == meltdown::HeatMode::Overdrive;
+    const bool cooling = simulation.heat.mode == meltdown::HeatMode::Cooling;
     const auto &heat = simulation.heat;
     const char *tiers[] = {"NORMAL", "HEATING", "BURNING", "CRITICAL", "OVERDRIVE"};
     const String state = heat.mode == meltdown::HeatMode::Cooling ? "COOLING" : tiers[heat.tier()];
@@ -858,8 +896,8 @@ Dictionary MeltdownArena::get_snapshot() const
     {
         Dictionary entry;
         entry["id"] = object.id;
-        entry["wall"] = object.wall;
-        entry["pillar"] = object.pillar;
+        entry["wall"] = object.kind == meltdown::EnvironmentKind::Wall;
+        entry["pillar"] = object.kind == meltdown::EnvironmentKind::Pillar;
         entry["position"] = world(object.position);
         entry["direction"] = world(object.direction);
         entry["half_size"] = world(object.half_size);
@@ -880,7 +918,7 @@ Dictionary MeltdownArena::get_snapshot() const
         entry["owner_id"] = block.owner_id;
         entry["layer"] = block.layer;
         entry["position"] = world(block.position, block.height);
-        entry["landing"] = world(block.landing, meltdown::block_half_height);
+        entry["landing"] = world(block.landing, block.landing_height);
         entry["falling"] = block.falling;
         entry["settled"] = block.settled;
         entry["yaw"] = block.yaw;
@@ -889,7 +927,33 @@ Dictionary MeltdownArena::get_snapshot() const
         blocks.push_back(entry);
     }
     result["blocks"] = blocks;
+    Array cells;
+    for (const auto p : simulation.dungeon.occupied({-24, 0, -24}, {23, 7, 23}))
+    {
+        const auto cell = simulation.dungeon.get(p);
+        Dictionary entry;
+        entry["cell"] = Vector3i(p.x, p.y, p.z);
+        entry["hp"] = cell.hp;
+        entry["warning"] = cell.warning;
+        entry["kind"] = static_cast<int>(cell.kind);
+        cells.push_back(entry);
+    }
+    result["voxel_cells"] = cells;
+    result["voxel_size"] = meltdown::voxel_size;
+    result["chunk_size"] = meltdown::dungeon_chunk_size;
+    result["chunk_count"] = static_cast<int>(simulation.dungeon.chunks.size());
     return result;
+}
+
+Node3D *MeltdownArena::instantiate_visual(const Ref<PackedScene> &scene)
+{
+    Node *instance = scene.is_valid() ? scene->instantiate() : nullptr;
+    auto *visual = Object::cast_to<Node3D>(instance);
+    if (visual)
+        add_child(visual);
+    else if (instance)
+        memdelete(instance);
+    return visual;
 }
 
 void MeltdownArena::present_environment()
@@ -899,28 +963,25 @@ void MeltdownArena::present_environment()
     for (const auto &object : simulation.environment)
     {
         using State = meltdown::EnvironmentState;
+        const bool is_pillar = object.kind == meltdown::EnvironmentKind::Pillar;
+        const bool is_wall = object.kind == meltdown::EnvironmentKind::Wall;
         auto &visual = environment_visuals[object.id];
         if (!visual.body)
         {
-            const Ref<PackedScene> scene = object.pillar ? Ref<PackedScene>() : object.wall ? wall_visual : pipe_visual;
-            Node *instance = scene.is_valid() ? scene->instantiate() : nullptr;
-            visual.body = Object::cast_to<Node3D>(instance);
-            if (visual.body)
-                add_child(visual.body);
-            else
+            const Ref<PackedScene> scene = is_pillar ? Ref<PackedScene>() : is_wall ? wall_visual : pipe_visual;
+            visual.body = instantiate_visual(scene);
+            if (!visual.body)
             {
-                if (instance)
-                    memdelete(instance);
                 visual.body = memnew(Node3D);
                 add_child(visual.body);
-                box(visual.body, Vector3(0, object.pillar ? 0.06 : 0.7, 0), object.pillar ? Vector3(1.2, 0.12, 1.2) :
-                    object.wall ? Vector3(3, 1.4, 0.7) : Vector3(0.8, 1.3, 0.8), gold);
+                box(visual.body, Vector3(0, is_pillar ? 0.06 : 0.7, 0), is_pillar ? Vector3(1.2, 0.12, 1.2) :
+                    is_wall ? Vector3(3, 1.4, 0.7) : Vector3(0.8, 1.3, 0.8), gold);
             }
             visual.body->set_name("Environment" + String::num_int64(object.id));
             visual.danger = memnew(MeshInstance3D);
             visual.danger->set_name("EnvironmentDanger" + String::num_int64(object.id));
             add_child(visual.danger);
-            visual.health = box(this, {}, Vector3(object.wall ? 2.6 : 0.9, 0.07, 0.09), cyan);
+            visual.health = box(this, {}, Vector3(is_wall ? 2.6 : 0.9, 0.07, 0.09), cyan);
             visual.direction = memnew(MeshInstance3D);
             add_child(visual.direction);
             visual.direction->set_material_override(material(Color(1, 0.72, 0.25), true));
@@ -941,13 +1002,13 @@ void MeltdownArena::present_environment()
             visual.body->call("set_environment_state", static_cast<int>(object.state), object.hp / object.max_hp, object.remaining);
         else
             visual.body->set_visible(!active && !spent);
-        visual.health->set_position(world(object.position, object.pillar ? 5.35f : 1.7f));
+        visual.health->set_position(world(object.position, is_pillar ? 5.35f : 1.7f));
         visual.health->set_scale(Vector3(std::max(0.001f, object.hp / object.max_hp), 1, 1));
         visual.health->set_visible(object.hp > 0);
         visual.direction->set_visible(!spent && !active);
-        draw_sector(visual.direction, object.position + object.direction * (object.wall ? 0.6f : 0.5f), object.direction, 0.65f, 48);
-        visual.danger->set_visible(!object.pillar && (warning || active));
-        if (!object.pillar && (warning || active))
+        draw_sector(visual.direction, object.position + object.direction * (is_wall ? 0.6f : 0.5f), object.direction, 0.65f, 48);
+        visual.danger->set_visible(!is_pillar && (warning || active));
+        if (!is_pillar && (warning || active))
         {
             visual.danger->set_material_override(active ? environment_active_material : warning_material);
             draw_sector(visual.danger, object.position, object.direction, object.radius, object.angle);
@@ -957,14 +1018,20 @@ void MeltdownArena::present_environment()
         if (distance < nearest && !spent)
         {
             nearest = distance;
-            hint = String(object.pillar ? "PILLAR" : object.wall ? "WALL" : "PRESSURE PIPE") + "  " +
+            hint = String(is_pillar ? "PILLAR" : is_wall ? "WALL" : "PRESSURE PIPE") + "  " +
                 (warning ? "COLLAPSING / " + String::num(object.remaining, 1) + "s" : active ? "FALLING!" :
                 "HP " + String::num(object.hp, 0) + " / ATTACK TO BREAK") +
-                (object.pillar ? "\nFALLING BLOCKS HURT BOTH SIDES" : "\nGOLD ARROW: BURST / HURTS BOTH SIDES");
+                (is_pillar ? "\nFALLING BLOCKS HURT BOTH SIDES" : "\nGOLD ARROW: BURST / HURTS BOTH SIDES");
         }
     }
     if (environment_hint)
+    {
+        if (!simulation.collapses.empty())
+            hint = "WALL COLLAPSING! / MOVE AWAY\nFALLING BLOCKS HURT BOTH SIDES";
+        else if (hint.is_empty())
+            hint = "1m BLOCKS / ATTACK STONE WALLS\nBREAK SUPPORTS TO DROP BLOCKS";
         environment_hint->set_text(simulation.finished || simulation.choosing_upgrade ? "" : hint);
+    }
     present_blocks();
 }
 
@@ -977,20 +1044,15 @@ void MeltdownArena::present_blocks()
             {
                 return object.id == block.owner_id;
             });
-        if (owner == simulation.environment.end())
+        if (owner == simulation.environment.end() && block.owner_id != 0)
             continue;
         auto &visual = block_visuals[block.id];
         if (!visual.body)
         {
-            Node *instance = pillar_block_visual.is_valid() ? pillar_block_visual->instantiate() : nullptr;
-            visual.body = Object::cast_to<Node3D>(instance);
-            if (visual.body)
-                add_child(visual.body);
-            else
+            visual.body = instantiate_visual(pillar_block_visual);
+            if (!visual.body)
             {
-                if (instance)
-                    memdelete(instance);
-                visual.body = box(this, {}, Vector3(0.96, 0.96, 0.96), gold);
+                visual.body = box(this, {}, Vector3(1, 1, 1), gold);
             }
             visual.body->set_name("PillarBlock" + String::num_int64(block.id));
             visual.shadow = memnew(MeshInstance3D);
@@ -1011,14 +1073,19 @@ void MeltdownArena::present_blocks()
         visual.body->set_position(world(block.position, block.height));
         visual.body->set_rotation(Vector3(0, block.yaw, 0));
         if (visual.body->has_method("set_environment_state"))
-            visual.body->call("set_environment_state", block.settled ? 4 : static_cast<int>(owner->state),
-                owner->hp / owner->max_hp, owner->remaining);
-        const bool warning = owner->state == meltdown::EnvironmentState::Warning;
+            visual.body->call("set_environment_state", block.settled ? 4 :
+                owner == simulation.environment.end() ? 3 : static_cast<int>(owner->state),
+                owner == simulation.environment.end() ? 0.0f : owner->hp / owner->max_hp,
+                owner == simulation.environment.end() ? 0.0f : owner->remaining);
+        const bool warning = owner != simulation.environment.end() && owner->state == meltdown::EnvironmentState::Warning;
         visual.shadow->set_visible((warning || block.falling) && !block.settled);
         if (visual.shadow->is_visible())
             draw_sector(visual.shadow, block.position, {0, -1}, meltdown::block_radius, 360);
         visual.landing->set_visible((warning || block.falling) && !block.settled && block.layer > 0);
         if (visual.landing->is_visible())
+        {
             draw_ring(visual.landing, block.landing, meltdown::block_radius + 0.35f, 0.06f, 1);
+            visual.landing->set_position(world(block.landing, block.landing_height - meltdown::block_half_height + 0.09f));
+        }
     }
 }

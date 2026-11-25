@@ -13,6 +13,8 @@ void check(bool condition, const char *message)
     }
 }
 
+#include "dungeon_grid_test.h"
+
 void environment_tests()
 {
     using namespace meltdown;
@@ -25,7 +27,7 @@ void environment_tests()
         auto &object = game.environment[0];
         object = EnvironmentObject();
         object.id = 9000;
-        object.wall = wall;
+        object.kind = wall ? EnvironmentKind::Wall : EnvironmentKind::Pipe;
         object.position = {0, -1.8f};
         object.direction = {0, 1};
         object.hp = object.max_hp = wall ? 44.0f : 20.0f;
@@ -147,7 +149,7 @@ void environment_tests()
     fixture(false);
     EnvironmentObject shield;
     shield.id = 9001;
-    shield.wall = true;
+    shield.kind = EnvironmentKind::Wall;
     shield.position = {0, -0.9f};
     game.environment.push_back(shield);
     game.environment[0].state = EnvironmentState::Warning;
@@ -178,7 +180,7 @@ void pillar_tests()
     Simulation game;
     game.reset();
     game.enemies.clear();
-    check(game.falling_blocks.size() == 20 && game.environment[0].pillar, "four columns built from five individual blocks");
+    check(game.falling_blocks.size() == 20 && game.environment[0].kind == EnvironmentKind::Pillar, "four columns built from five individual blocks");
     game.player = {-4, -0.6f};
     Input strike;
     strike.heavy = true;
@@ -293,6 +295,7 @@ void pillar_tests()
 
 int main()
 {
+    dungeon_tests();
     pillar_tests();
     environment_tests();
     using namespace meltdown;

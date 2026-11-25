@@ -37,6 +37,10 @@
   <ItemGroup>
     <ClInclude Include="src\game_system.h" />
     <ClInclude Include="src\meltdown_sim.h" />
+    <ClInclude Include="src\dungeon_grid.h" />
+    <ClCompile Include="src\dungeon_grid.cpp" />
+    <ClCompile Include="src\meltdown_dungeon.cpp" />
+    <ClCompile Include="src\meltdown_dungeon_view.cpp" />
     <ClInclude Include="src\meltdown_arena.h" />
     <ClCompile Include="src\meltdown_sim.cpp" />
     <ClCompile Include="src\meltdown_arena.cpp" />

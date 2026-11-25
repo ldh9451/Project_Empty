@@ -1,4 +1,5 @@
 #include "meltdown_sim.h"
+#include <queue>
 
 namespace meltdown
 {
@@ -6,7 +7,7 @@ namespace meltdown
     {
         void position_pillar_block(FallingBlock &block, const EnvironmentObject &pillar, float lean)
         {
-            const float elevation = block.layer * 1.02f;
+            const float elevation = block.layer * pillar_layer_spacing;
             block.position = pillar.position + pillar.direction * (elevation * std::sin(lean));
             block.height = block_half_height + elevation * std::cos(lean);
         }
@@ -51,8 +52,25 @@ namespace meltdown
             }
             const Vec relative_start = start - actor_start;
             const Vec relative_delta = end - actor_end - relative_start;
-            return circle_entry(relative_start + relative_delta * enter,
-                relative_start + relative_delta * leave, {}, actor_radius + block_radius) <= 1;
+            const float origin[] = {relative_start.x, relative_start.z};
+            const float movement[] = {relative_delta.x, relative_delta.z};
+            const float extent = 0.5f + actor_radius;
+            for (int axis = 0; axis < 2; ++axis)
+            {
+                if (std::abs(movement[axis]) < 0.000001f)
+                {
+                    if (std::abs(origin[axis]) > extent)
+                        return false;
+                    continue;
+                }
+                float a = (-extent - origin[axis]) / movement[axis];
+                float b = (extent - origin[axis]) / movement[axis];
+                if (a > b)
+                    std::swap(a, b);
+                enter = std::max(enter, a);
+                leave = std::min(leave, b);
+            }
+            return enter <= leave;
         }
 
         // Earliest segment entry into an axis-aligned wall; 2 means no intersection.
@@ -88,6 +106,9 @@ namespace meltdown
 
     bool Simulation::wall_between(Vec start, Vec end, float padding, int ignore_id) const
     {
+        if (dungeon.sweep({start.x, 0.65f, start.z}, {end.x, 0.65f, end.z},
+            {padding, padding > 0 ? 0.55f : 0.0f, padding}, ignore_id).fraction <= 1)
+            return true;
         for (const auto &object : environment)
         {
             if (object.blocking() && object.id != ignore_id && wall_entry(start, end, object, padding) <= 1)
@@ -98,6 +119,27 @@ namespace meltdown
 
     Vec Simulation::constrain_walls(Vec position, float radius) const
     {
+        const auto lo = DungeonGrid::world_cell(position.x - radius, 0, position.z - radius);
+        const auto hi = DungeonGrid::world_cell(position.x + radius, 1.2f, position.z + radius);
+        for (const auto p : dungeon.occupied(lo, hi))
+        {
+            if (dungeon.get(p).kind != VoxelKind::Stone)
+                continue;
+            const Vec closest{std::clamp(position.x, float(p.x), p.x + 1.0f),
+                std::clamp(position.z, float(p.z), p.z + 1.0f)};
+            const Vec away = position - closest;
+            const float distance = away.length();
+            if (distance > 0.00001f && distance < radius)
+                position = closest + away * (radius / distance);
+            else if (distance <= 0.00001f)
+            {
+                const Vec local = position - Vec{p.x + 0.5f, p.z + 0.5f};
+                if (std::abs(local.x) > std::abs(local.z))
+                    position.x = p.x + 0.5f + (local.x < 0 ? -1 : 1) * (0.5f + radius);
+                else
+                    position.z = p.z + 0.5f + (local.z < 0 ? -1 : 1) * (0.5f + radius);
+            }
+        }
         for (const auto &object : environment)
         {
             if (!object.blocking())
@@ -127,10 +169,76 @@ namespace meltdown
         return position;
     }
 
-    Vec Simulation::steer(Vec position, Vec target, float radius) const
+    Vec Simulation::steer(Enemy &enemy, Vec target) const
     {
+        const Vec position = enemy.position;
+        const float radius = enemy.radius;
         if (!wall_between(position, target, radius))
+        {
+            enemy.has_waypoint = false;
             return (target - position).normalized();
+        }
+        if (enemy.has_waypoint && (enemy.waypoint - position).length() > 0.08f &&
+            !wall_between(position, enemy.waypoint, radius))
+            return (enemy.waypoint - position).normalized();
+        enemy.has_waypoint = false;
+        // Bounded A* on the same 1m occupancy grid; destruction opens routes immediately.
+        if (dungeon.sweep({position.x, 0.65f, position.z}, {target.x, 0.65f, target.z},
+            {radius, 0.55f, radius}).fraction <= 1)
+        {
+            const auto start = DungeonGrid::world_cell(position.x, 0, position.z);
+            const auto goal = DungeonGrid::world_cell(target.x, 0, target.z);
+            auto inside = [](CellPosition p)
+            {
+                return p.x >= -23 && p.x < 23 && p.z >= -23 && p.z < 23;
+            };
+            std::map<CellPosition, float> costs;
+            std::map<CellPosition, CellPosition> parent;
+            using Visit = std::pair<float, CellPosition>;
+            std::priority_queue<Visit, std::vector<Visit>, std::greater<Visit>> open;
+            costs[start] = 0;
+            open.push({0.0f, start});
+            bool found = false;
+            while (!open.empty())
+            {
+                const auto current = open.top().second;
+                open.pop();
+                if (current == goal)
+                {
+                    found = true;
+                    break;
+                }
+                for (const auto direction : {CellPosition{1, 0, 0}, CellPosition{-1, 0, 0},
+                    CellPosition{0, 0, 1}, CellPosition{0, 0, -1}})
+                {
+                    const auto next = current + direction;
+                    if (!inside(next))
+                        continue;
+                    const Vec from = current == start ? position : Vec{current.x + 0.5f, current.z + 0.5f};
+                    const Vec to = next == goal ? target : Vec{next.x + 0.5f, next.z + 0.5f};
+                    if (wall_between(from, to, radius))
+                        continue;
+                    const float cost = costs[current] + (to - from).length();
+                    const auto old = costs.find(next);
+                    if (old != costs.end() && old->second <= cost)
+                        continue;
+                    costs[next] = cost;
+                    parent[next] = current;
+                    const float estimate = float(std::abs(next.x - goal.x) + std::abs(next.z - goal.z));
+                    open.push({cost + estimate, next});
+                }
+            }
+            if (found && !(start == goal))
+            {
+                auto next = goal;
+                while (!(parent[next] == start))
+                    next = parent[next];
+                enemy.waypoint = next == goal ? target : Vec{next.x + 0.5f, next.z + 0.5f};
+                enemy.has_waypoint = true;
+                return (enemy.waypoint - position).normalized();
+            }
+            return {};
+        }
         Vec waypoint = position;
         float best = 1e9f;
         // shortcut: local corner steering for separated short walls, use navigation for maze layouts.
@@ -196,7 +304,7 @@ namespace meltdown
         {
             if (object.state != EnvironmentState::Warning && object.state != EnvironmentState::Active)
                 continue;
-            if (object.pillar && object.state == EnvironmentState::Active)
+            if (object.kind == EnvironmentKind::Pillar && object.state == EnvironmentState::Active)
                 continue;
             object.remaining -= delta;
             if (object.remaining > 0)
@@ -206,8 +314,14 @@ namespace meltdown
             else
             {
                 object.state = EnvironmentState::Active;
-                object.remaining = object.pillar ? 0.0f : 0.4f;
-                if (!object.pillar)
+                if (object.kind == EnvironmentKind::Pillar)
+                {
+                    for (int y = 0; y < pillar_block_count; ++y)
+                        dungeon.set(DungeonGrid::world_cell(object.position.x, float(y), object.position.z), {});
+                    warn_unsupported();
+                }
+                object.remaining = object.kind == EnvironmentKind::Pillar ? 0.0f : 0.4f;
+                if (object.kind != EnvironmentKind::Pillar)
                     activated.push_back(object.id);
             }
         }
@@ -234,32 +348,44 @@ namespace meltdown
         {
             auto owner = std::find_if(environment.begin(), environment.end(), [&](const EnvironmentObject &object)
             {
-                return object.id == block.owner_id && object.pillar;
+                return object.id == block.owner_id && object.kind == EnvironmentKind::Pillar;
             });
-            if (owner == environment.end() || block.settled)
+            if ((owner == environment.end() && block.owner_id != 0) || block.settled)
                 continue;
-            if (owner->state < EnvironmentState::Active)
+            if (owner != environment.end() && owner->state < EnvironmentState::Active)
             {
                 const float progress = owner->state == EnvironmentState::Warning ?
                     std::clamp(1 - owner->remaining / owner->warning_duration, 0.0f, 1.0f) : 0;
-                position_pillar_block(block, *owner, 0.22f * progress);
+                position_pillar_block(block, *owner, pillar_lean_angle * progress);
+                if (progress > 0)
+                    predict_landing(block);
                 continue;
             }
-            if (!block.falling)
+            if (!block.falling && owner != environment.end())
             {
-                position_pillar_block(block, *owner, 0.22f);
+                position_pillar_block(block, *owner, pillar_lean_angle);
                 block.falling = true;
             }
             // Ballistic blocks with cylinder proxies; upgrade to rigid bodies for block-to-block piles.
             const float impact_time = (block.vertical_speed + std::sqrt(block.vertical_speed * block.vertical_speed +
                 2 * block_gravity * std::max(0.0f, block.height - block_half_height))) / block_gravity;
-            const float step = std::min(delta, impact_time);
+            float step = std::min(delta, impact_time);
             const Vec start = block.position;
             const float y_start = block.height;
+            const float y_end = y_start + block.vertical_speed * step - 0.5f * block_gravity * step * step;
+            const auto hit = dungeon.sweep({start.x, y_start, start.z},
+                {start.x + block.velocity.x * step, y_end,
+                    start.z + block.velocity.z * step}, {0.5f, 0.5f, 0.5f}, 0, true);
+            const bool terrain_hit = hit.fraction <= 1;
+            if (terrain_hit)
+                step *= hit.fraction;
             block.position = block.position + block.velocity * step;
             block.height += block.vertical_speed * step - 0.5f * block_gravity * step * step;
+            if (terrain_hit)
+                block.height = y_start + (y_end - y_start) * hit.fraction;
             block.vertical_speed -= block_gravity * step;
-            block.yaw += (block.layer % 2 ? 1 : -1) * step * 1.8f;
+            // Axis-aligned 1m rubble keeps the visual and static terrain sweep consistent.
+            block.yaw = 0;
             const float fraction = step / delta;
             if (step > 0 && std::find(block.hit_ids.begin(), block.hit_ids.end(), 0) == block.hit_ids.end() &&
                 block_contact(start, block.position, y_start, block.height, old_player,
@@ -285,18 +411,20 @@ namespace meltdown
                     enemy.position = move_body(enemy.position, block.velocity.normalized() * 0.6f, enemy.radius);
                 }
             }
-            if (impact_time <= delta)
+            if (impact_time <= delta || terrain_hit)
             {
-                block.height = block_half_height;
+                block.height = std::max(block_half_height, block.height);
                 block.settled = true;
                 block.vertical_speed = 0;
                 block.velocity = {};
                 burst(block.position, 4);
             }
+            else
+                predict_landing(block);
         }
         for (auto &object : environment)
         {
-            if (object.pillar && object.state == EnvironmentState::Active &&
+            if (object.kind == EnvironmentKind::Pillar && object.state == EnvironmentState::Active &&
                 std::none_of(falling_blocks.begin(), falling_blocks.end(), [&](const FallingBlock &block)
                 {
                     return block.owner_id == object.id && !block.settled;
@@ -409,7 +537,7 @@ namespace meltdown
                         [&](const EnvironmentObject &object)
                         {
                             return (object.state == EnvironmentState::Warning ||
-                                (object.pillar && object.state == EnvironmentState::Active)) &&
+                                (object.kind == EnvironmentKind::Pillar && object.state == EnvironmentState::Active)) &&
                                 in_sector(position - object.position, object.direction, object.radius + 1, object.angle + 20);
                         });
                     if (!danger)
@@ -420,26 +548,24 @@ namespace meltdown
         }
     }
 
-    void Simulation::reset(bool practice)
+    void Simulation::create_environment()
     {
-        *this = Simulation();
-        training = practice;
-        const Vec positions[] = {{-4, -2}, {5, 3}, {-10, -10}, {12, -8}};
+        const Vec positions[] = {{-3.5f, -1.5f}, {5.5f, 3.5f}, {-9.5f, -9.5f}, {12.5f, -7.5f}};
         for (int i = 0; i < 4; ++i)
         {
             EnvironmentObject object;
             object.id = next_id++;
             object.position = positions[i];
             object.direction = i % 2 ? Vec{0, -1} : Vec{0, 1};
-            object.pillar = true;
+            object.kind = EnvironmentKind::Pillar;
             object.hp = object.max_hp = 44;
-            object.half_size = {0.55f, 0.55f};
+            object.half_size = {0.5f, 0.5f};
             object.radius = 6;
             object.angle = 110;
             object.damage = 0;
             object.warning_duration = 1;
             environment.push_back(object);
-            for (int layer = 0; layer < 5; ++layer)
+            for (int layer = 0; layer < pillar_block_count; ++layer)
             {
                 FallingBlock block;
                 block.id = next_id++;
@@ -448,13 +574,21 @@ namespace meltdown
                 const Vec side = {-object.direction.z, object.direction.x};
                 block.velocity = object.direction * (1.4f + layer * 0.55f) +
                     side * ((layer % 2 ? 1 : -1) * (0.2f + layer * 0.1f));
-                position_pillar_block(block, object, 0.22f);
+                position_pillar_block(block, object, pillar_lean_angle);
                 block.landing = block.position + block.velocity *
                     std::sqrt(2 * (block.height - block_half_height) / block_gravity);
                 position_pillar_block(block, object, 0);
                 falling_blocks.push_back(block);
             }
         }
+    }
+
+    void Simulation::reset(bool practice)
+    {
+        *this = Simulation();
+        training = practice;
+        create_environment();
+        create_dungeon();
         if (training)
         {
             spawn_enemy(0, {0, -2});
@@ -563,13 +697,31 @@ namespace meltdown
         }
         for (auto &object : environment)
         {
-            const Vec target = (object.wall || object.pillar) ? object.position + Vec{
+            const Vec target = (object.kind != EnvironmentKind::Pipe) ? object.position + Vec{
                 std::clamp(player.x - object.position.x, -object.half_size.x, object.half_size.x),
                 std::clamp(player.z - object.position.z, -object.half_size.z, object.half_size.z)} : object.position;
             if (in_sector(target - player, attack.direction, attack.radius, attack.angle) &&
                 !wall_between(player, target, 0, object.id))
                 damage_environment(object, attack.damage, attack.record);
         }
+        std::vector<CellPosition> struck;
+        const auto lo = DungeonGrid::world_cell(player.x - attack.radius, 0, player.z - attack.radius);
+        const auto hi = DungeonGrid::world_cell(player.x + attack.radius, 1.2f, player.z + attack.radius);
+        for (const auto p : dungeon.occupied(lo, hi))
+        {
+            if (dungeon.get(p).kind != VoxelKind::Stone)
+                continue;
+            const Vec target{p.x + 0.5f, p.z + 0.5f};
+            const auto hit = dungeon.sweep({player.x, 0.65f, player.z}, {target.x, 0.65f, target.z}, {0, 0, 0});
+            if (in_sector(target - player, attack.direction, attack.radius + 0.5f, attack.angle) &&
+                (hit.fraction > 1 || (hit.cell.x == p.x && hit.cell.z == p.z)))
+                struck.push_back(p);
+        }
+        // Collect before applying damage: one strike cannot tunnel through a newly opened front layer.
+        for (const auto p : struck)
+            damage_voxel(p, attack.damage, attack.record);
+        if (!struck.empty())
+            warn_unsupported();
         if (attack.tier >= 3 && attack.record->heat == 20)
         {
             for (auto &projectile : projectiles)
@@ -657,14 +809,14 @@ namespace meltdown
             }
             else if ((enemy.kind == 1 || enemy.kind == 4) && toward.length() > 1.05f)
             {
-                enemy.position = move_body(enemy.position, steer(enemy.position, player, enemy.radius) *
+                enemy.position = move_body(enemy.position, steer(enemy, player) *
                     ((enemy.kind == 4 ? 1.2f : 2.1f) * delta), enemy.radius);
                 enemy.direction = toward.normalized();
             }
             else if (enemy.kind == 3)
             {
                 const float speed = toward.length() > 6 ? 1.4f : toward.length() < 4 ? -1.4f : 0;
-                enemy.position = move_body(enemy.position, steer(enemy.position, player, enemy.radius) * (speed * delta), enemy.radius);
+                enemy.position = move_body(enemy.position, steer(enemy, player) * (speed * delta), enemy.radius);
                 enemy.direction = toward.normalized();
             }
         }
@@ -703,18 +855,27 @@ namespace meltdown
             float nearest = 2;
             EnvironmentObject *obstacle = nullptr;
             Enemy *first = nullptr;
+            const auto voxel_hit = dungeon.sweep({start.x, 0.65f, start.z}, {end.x, 0.65f, end.z},
+                {projectile.radius, projectile.radius, projectile.radius});
+            bool hit_voxel = false;
             for (auto &object : environment)
             {
                 float t = 2;
                 if (object.blocking())
                     t = wall_entry(start, end, object, projectile.radius);
-                else if (!object.wall && object.state < EnvironmentState::Warning && projectile.record)
+                else if (object.kind == EnvironmentKind::Pipe && object.state < EnvironmentState::Warning && projectile.record)
                     t = circle_entry(start, end, object.position, projectile.radius + 0.4f);
                 if (t < nearest)
                 {
                     nearest = t;
                     obstacle = &object;
                 }
+            }
+            if (voxel_hit.fraction < nearest)
+            {
+                nearest = voxel_hit.fraction;
+                hit_voxel = true;
+                obstacle = nullptr;
             }
             if (projectile.record)
             {
@@ -728,6 +889,7 @@ namespace meltdown
                     {
                         first = &enemy;
                         obstacle = nullptr;
+                        hit_voxel = false;
                         nearest = t;
                     }
                 }
@@ -742,10 +904,17 @@ namespace meltdown
                 damage_player(projectile.damage);
                 projectile.life = 0;
                 obstacle = nullptr;
+                hit_voxel = false;
             }
             if (obstacle)
             {
                 damage_environment(*obstacle, projectile.damage, projectile.record);
+                projectile.life = 0;
+            }
+            if (hit_voxel)
+            {
+                damage_voxel(voxel_hit.cell, projectile.damage, projectile.record);
+                warn_unsupported();
                 projectile.life = 0;
             }
             projectile.position = end;
@@ -836,6 +1005,7 @@ namespace meltdown
             input.move.normalized() * (5.0f * (delta - dash_time)));
         dash_left = std::max(0.0f, dash_left - delta);
         update_environment(delta);
+        update_dungeon(delta);
         if (cooldown <= 0 && dash_time == 0 && !finished && (input.light || input.heavy))
             start_attack(input.heavy);
         if (attack.pending)

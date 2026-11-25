@@ -1,21 +1,25 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://scenes/environment/pillar_block_visual.gd" id="1"]
+[ext_resource type="Shader" path="res://scenes/environment/dungeon_stone.gdshader" id="2"]
 
-[sub_resource type="StandardMaterial3D" id="Stone"]
-albedo_color = Color(0.36, 0.48, 0.54, 1)
-roughness = 0.95
+[sub_resource type="ShaderMaterial" id="Stone"]
+shader = ExtResource("2")
+shader_parameter/terrain_palette = false
+shader_parameter/tint = Color(0.40, 0.49, 0.53, 1)
 
-[sub_resource type="StandardMaterial3D" id="Damaged"]
-albedo_color = Color(0.72, 0.52, 0.3, 1)
-roughness = 0.95
+[sub_resource type="ShaderMaterial" id="Damaged"]
+shader = ExtResource("2")
+shader_parameter/terrain_palette = false
+shader_parameter/tint = Color(0.92, 0.52, 0.16, 1)
 
-[sub_resource type="StandardMaterial3D" id="Rubble"]
-albedo_color = Color(0.3, 0.32, 0.34, 1)
-roughness = 1.0
+[sub_resource type="ShaderMaterial" id="Rubble"]
+shader = ExtResource("2")
+shader_parameter/terrain_palette = false
+shader_parameter/tint = Color(0.32, 0.25, 0.30, 1)
 
 [sub_resource type="BoxMesh" id="Block"]
-size = Vector3(0.9, 0.96, 0.9)
+size = Vector3(1, 1, 1)
 
 [sub_resource type="BoxMesh" id="Crack"]
 size = Vector3(0.045, 0.8, 0.975)

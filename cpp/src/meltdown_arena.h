@@ -70,6 +70,15 @@ namespace godot
         Ref<PackedScene> pipe_visual;
         Ref<PackedScene> wall_visual;
         Ref<PackedScene> pillar_block_visual;
+        Ref<Material> dungeon_material;
+        struct DungeonVisual
+        {
+            MeshInstance3D *mesh = nullptr;
+            unsigned revision = 0;
+        };
+        std::map<meltdown::CellPosition, DungeonVisual> dungeon_visuals;
+        void present_dungeon();
+        void clear_dungeon_visuals();
         struct BlockVisual
         {
             Node3D *body = nullptr;
@@ -109,6 +118,12 @@ namespace godot
         Ref<AudioStreamWAV> warning_sound;
         void setup_input();
         void present();
+        void present_player();
+        void present_enemies();
+        void present_attacks();
+        void present_projectiles();
+        void present_fragments();
+        void present_hud();
         MeshInstance3D *box(Node3D *parent, Vector3 position, Vector3 size, const Ref<StandardMaterial3D> &material);
         void draw_sector(MeshInstance3D *target, meltdown::Vec position, meltdown::Vec direction, float radius, float angle);
         void draw_charge(MeshInstance3D *target, const meltdown::Enemy &enemy);
@@ -117,6 +132,7 @@ namespace godot
         void present_environment();
         void present_blocks();
         void clear_environment_visuals();
+        Node3D *instantiate_visual(const Ref<PackedScene> &scene);
 
     protected:
         static void _bind_methods();
@@ -137,6 +153,8 @@ namespace godot
         Ref<PackedScene> get_wall_visual() const;
         void set_pillar_block_visual(const Ref<PackedScene> &scene);
         Ref<PackedScene> get_pillar_block_visual() const;
+        void set_dungeon_material(const Ref<Material> &value);
+        Ref<Material> get_dungeon_material() const;
         void set_environment_warning_sound(const Ref<AudioStream> &sound);
         Ref<AudioStream> get_environment_warning_sound() const;
         void set_environment_burst_sound(const Ref<AudioStream> &sound);

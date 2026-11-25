@@ -1,5 +1,7 @@
 #pragma once
 
+#include "dungeon_grid.h"
+
 #include <algorithm>
 #include <cmath>
 #include <cstdint>
@@ -13,9 +15,12 @@ namespace meltdown
     constexpr float arena_limit = arena_half_size - 1.0f;
     constexpr float vent_radius = 3.2f;
     constexpr float vent_effect_duration = 0.4f;
+    constexpr int pillar_block_count = 5;
+    constexpr float pillar_layer_spacing = voxel_size;
+    constexpr float pillar_lean_angle = 0.22f;
     constexpr float block_gravity = 12.0f;
     constexpr float block_radius = 0.68f;
-    constexpr float block_half_height = 0.48f;
+    constexpr float block_half_height = voxel_size * 0.5f;
     constexpr float block_damage = 18.0f;
 
     struct Vec
@@ -112,6 +117,8 @@ namespace meltdown
         bool charge_hit = false;
         float radius = 0.4f;
         Vec previous_position;
+        Vec waypoint;
+        bool has_waypoint = false;
     };
 
     struct AttackRecord
@@ -121,6 +128,7 @@ namespace meltdown
         float heat = 0;
         bool charged = false;
         std::vector<int> hit_ids;
+        std::vector<CellPosition> hit_cells;
     };
 
     struct Attack
@@ -169,11 +177,15 @@ namespace meltdown
         Intact, Damaged, Warning, Active, Spent
     };
 
+    enum class EnvironmentKind
+    {
+        Pipe, Wall, Pillar
+    };
+
     struct EnvironmentObject
     {
         int id = 0;
-        bool wall = false;
-        bool pillar = false;
+        EnvironmentKind kind = EnvironmentKind::Pipe;
         Vec position;
         Vec direction = {0, -1};
         Vec half_size = {1.5f, 0.35f};
@@ -187,7 +199,7 @@ namespace meltdown
         EnvironmentState state = EnvironmentState::Intact;
         bool blocking() const
         {
-            return (wall || pillar) && state < EnvironmentState::Active;
+            return kind != EnvironmentKind::Pipe && state < EnvironmentState::Active;
         }
     };
 
@@ -201,6 +213,7 @@ namespace meltdown
         Vec velocity;
         float vertical_speed = 0;
         Vec landing;
+        float landing_height = block_half_height;
         float yaw = 0;
         bool falling = false;
         bool settled = false;
@@ -221,12 +234,18 @@ namespace meltdown
         void burst(Vec position, int count);
         void spawn_enemy(int kind, Vec position);
         void spawn_wave();
+        void create_environment();
+        void create_dungeon();
+        void damage_voxel(CellPosition cell, float damage, const std::shared_ptr<AttackRecord> &record);
+        void warn_unsupported();
+        void update_dungeon(float delta);
+        void predict_landing(FallingBlock &block) const;
         void damage_environment(EnvironmentObject &object, float damage, const std::shared_ptr<AttackRecord> &record);
         void update_environment(float delta);
         void update_falling_blocks(float delta, Vec old_player);
         Vec constrain_walls(Vec position, float radius) const;
         Vec move_body(Vec position, Vec displacement, float radius) const;
-        Vec steer(Vec position, Vec target, float radius) const;
+        Vec steer(Enemy &enemy, Vec target) const;
 
     public:
         Vec player;
@@ -259,6 +278,13 @@ namespace meltdown
         std::vector<Fragment> fragments;
         std::vector<EnvironmentObject> environment;
         std::vector<FallingBlock> falling_blocks;
+        DungeonGrid dungeon;
+        struct Collapse
+        {
+            std::vector<CellPosition> cells;
+            float remaining = 1.0f;
+        };
+        std::vector<Collapse> collapses;
 
         void reset(bool practice = true);
         void tick(float delta, const Input &input);

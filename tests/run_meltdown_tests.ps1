@@ -22,7 +22,7 @@ New-Item -ItemType Directory -Force -Path $meltdownTestDir | Out-Null
 Push-Location $meltdownTestDir
 try
 {
-    & cl.exe /nologo /std:c++17 /EHsc /W4 /Fe:meltdown_sim_test.exe (Join-Path $PSScriptRoot 'meltdown_sim_test.cpp') (Join-Path $meltdownRoot 'cpp/src/meltdown_sim.cpp')
+    & cl.exe /nologo /std:c++17 /EHsc /W4 /Fe:meltdown_sim_test.exe (Join-Path $PSScriptRoot 'meltdown_sim_test.cpp') (Join-Path $meltdownRoot 'cpp/src/meltdown_sim.cpp') (Join-Path $meltdownRoot 'cpp/src/dungeon_grid.cpp') (Join-Path $meltdownRoot 'cpp/src/meltdown_dungeon.cpp')
     if ($LASTEXITCODE -ne 0)
     {
         exit $LASTEXITCODE
