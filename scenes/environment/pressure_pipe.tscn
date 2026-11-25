@@ -1,0 +1,88 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scenes/environment/environment_visual.gd" id="1_visual"]
+
+[sub_resource type="StandardMaterial3D" id="Normal"]
+albedo_color = Color(0.66, 0.47, 0.17, 1)
+metallic = 0.6
+roughness = 0.55
+
+[sub_resource type="StandardMaterial3D" id="Cracked"]
+albedo_color = Color(1, 0.27, 0.08, 1)
+emission_enabled = true
+emission = Color(0.85, 0.17, 0.03, 1)
+emission_energy_multiplier = 0.5
+
+[sub_resource type="StandardMaterial3D" id="Remains"]
+albedo_color = Color(0.18, 0.19, 0.22, 1)
+
+[sub_resource type="StandardMaterial3D" id="Steam"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 0.75, 0.4, 0.4)
+
+[sub_resource type="CylinderMesh" id="Body"]
+top_radius = 0.35
+bottom_radius = 0.4
+height = 1.3
+
+[sub_resource type="BoxMesh" id="Fragment"]
+size = Vector3(0.3, 0.25, 0.4)
+
+[sub_resource type="BoxMesh" id="Stripe"]
+size = Vector3(0.85, 0.12, 0.85)
+
+[node name="pressure_pipe" type="Node3D" node_paths=PackedStringArray("intact", "damaged", "spent", "burst")]
+script = ExtResource("1_visual")
+intact = NodePath("Intact")
+damaged = NodePath("Damaged")
+spent = NodePath("Spent")
+burst = NodePath("Burst")
+
+[node name="Intact" type="Node3D" parent="."]
+
+[node name="Body" type="MeshInstance3D" parent="Intact"]
+position = Vector3(0, 0.7, 0)
+mesh = SubResource("Body")
+material_override = SubResource("Normal")
+
+[node name="Band" type="MeshInstance3D" parent="Intact"]
+position = Vector3(0, 1.05, 0)
+mesh = SubResource("Stripe")
+material_override = SubResource("Cracked")
+
+[node name="Damaged" type="Node3D" parent="."]
+visible = false
+
+[node name="Body" type="MeshInstance3D" parent="Damaged"]
+position = Vector3(0, 0.6, 0)
+scale = Vector3(0.95, 0.8, 0.95)
+mesh = SubResource("Body")
+material_override = SubResource("Cracked")
+
+[node name="Spent" type="Node3D" parent="."]
+visible = false
+
+[node name="Base" type="MeshInstance3D" parent="Spent"]
+position = Vector3(0, 0.06, 0)
+scale = Vector3(1, 0.08, 1)
+mesh = SubResource("Body")
+material_override = SubResource("Remains")
+
+[node name="Burst" type="Node3D" parent="."]
+visible = false
+
+[node name="A" type="MeshInstance3D" parent="Burst"]
+position = Vector3(-0.4, 0.7, -0.4)
+mesh = SubResource("Fragment")
+material_override = SubResource("Steam")
+
+[node name="B" type="MeshInstance3D" parent="Burst"]
+position = Vector3(0.3, 0.5, -0.8)
+mesh = SubResource("Fragment")
+material_override = SubResource("Steam")
+
+[node name="C" type="MeshInstance3D" parent="Burst"]
+position = Vector3(0, 0.9, -1.4)
+mesh = SubResource("Fragment")
+material_override = SubResource("Steam")

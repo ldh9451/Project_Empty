@@ -1,7 +1,19 @@
 ProjectH C++ / Godot 4.7 GDExtension
 
-Current framework:
-  Main scene: scenes/main.tscn, root native node: EntryPoint.
+MELTDOWN combat prototype:
+  Main scene: scenes/meltdown.tscn, native root: MeltdownArena.
+  Core rules: src/meltdown_sim.h/.cpp (standalone C++17).
+  Input/presentation: src/meltdown_arena.h/.cpp.
+  Build using the existing commands below, then Godot F5.
+  WASD move; mouse aim; LMB slash; RMB heavy; Space dodge; Q vent; E overdrive.
+  1/2/3 select upgrades; R restart at results; F1 training; Esc pause; M mute.
+  Pure tests: powershell -ExecutionPolicy Bypass -File tests/run_meltdown_tests.ps1
+  Engine tests: godot_console.exe --headless --path . --script tests/meltdown_scene_test.gd
+  Replay: add --fixed-fps 60 --script tests/meltdown_playthrough.gd
+  Design, actual results and pending validation: ../ROADMAP.md and ../TECH_DESIGN.md.
+
+Preserved framework demo (open scenes/main.tscn and press F6):
+  Scene: scenes/main.tscn, root native node: EntryPoint.
   IGameSystem defines Init(), Update(double delta), Release().
   EntryPoint calls GameInput then GameCamera each frame and releases in reverse.
   Hold right mouse to look/move; WASD moves, Q/E down/up, Shift moves faster.
@@ -25,7 +37,7 @@ Visual Studio:
   3. Press F5 to debug the main scene. Set breakpoints in entry_point.cpp.
 
 Godot:
-  Open project.godot, then press F5 for the framework scene.
+  Open project.godot, then press F5 for MELTDOWN.
   Existing demos remain available separately:
   Open voxel_demo.tscn and press F6 for the Marching Cubes terrain demo.
   Hold left mouse to dig, right mouse to build.

@@ -1,0 +1,129 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="GDExtension" path="res://bin/project_h.gdextension" id="1_extension"]
+[ext_resource type="PackedScene" path="res://scenes/environment/pressure_pipe.tscn" id="2_pipe"]
+[ext_resource type="PackedScene" path="res://scenes/environment/armor_wall.tscn" id="3_wall"]
+[ext_resource type="PackedScene" path="res://scenes/environment/pillar_block.tscn" id="4_block"]
+
+[sub_resource type="Environment" id="Environment_arena"]
+background_mode = 1
+background_color = Color(0.025, 0.035, 0.05, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.65, 0.78, 0.9, 1)
+ambient_light_energy = 0.8
+tonemap_mode = 2
+
+[sub_resource type="StyleBoxFlat" id="Bar_background"]
+bg_color = Color(0.12, 0.15, 0.19, 1)
+
+[sub_resource type="StyleBoxFlat" id="Bar_heat"]
+bg_color = Color(0.96, 0.42, 0.14, 1)
+
+[sub_resource type="StyleBoxFlat" id="Bar_health"]
+bg_color = Color(0.33, 0.77, 0.86, 1)
+
+[node name="Meltdown" type="MeltdownArena"]
+pipe_visual = ExtResource("2_pipe")
+wall_visual = ExtResource("3_wall")
+pillar_block_visual = ExtResource("4_block")
+
+[node name="Camera" type="Camera3D" parent="."]
+position = Vector3(12, 19.8, 16)
+rotation_degrees = Vector3(-44.7, 36.87, 0)
+projection = 1
+size = 20.0
+current = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_arena")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-55, -25, 0)
+light_energy = 1.5
+shadow_enabled = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="EnvironmentHint" type="Label" parent="HUD"]
+offset_left = 750.0
+offset_top = 633.0
+theme_override_font_sizes/font_size = 17
+theme_override_colors/font_color = Color(1, 0.77, 0.33, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+mouse_filter = 2
+
+[node name="Status" type="Label" parent="HUD"]
+offset_left = 28.0
+offset_top = 22.0
+theme_override_font_sizes/font_size = 23
+theme_override_colors/font_color = Color(0.72, 0.91, 0.95, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+mouse_filter = 2
+
+[node name="Message" type="Label" parent="HUD"]
+offset_left = 28.0
+offset_top = 708.0
+theme_override_font_sizes/font_size = 19
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+mouse_filter = 2
+
+[node name="Health" type="ProgressBar" parent="HUD"]
+offset_left = 28.0
+offset_top = 122.0
+offset_right = 228.0
+offset_bottom = 133.0
+theme_override_styles/background = SubResource("Bar_background")
+theme_override_styles/fill = SubResource("Bar_health")
+show_percentage = false
+mouse_filter = 2
+
+[node name="Heat" type="ProgressBar" parent="HUD"]
+offset_left = 248.0
+offset_top = 122.0
+offset_right = 548.0
+offset_bottom = 133.0
+theme_override_styles/background = SubResource("Bar_background")
+theme_override_styles/fill = SubResource("Bar_heat")
+show_percentage = false
+mouse_filter = 2
+
+[node name="Center" type="Label" parent="HUD"]
+offset_left = 300.0
+offset_top = 170.0
+offset_right = 980.0
+offset_bottom = 245.0
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 23
+theme_override_colors/font_color = Color(1, 0.85, 0.6, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+mouse_filter = 2
+
+[node name="Skills" type="Label" parent="HUD"]
+offset_left = 28.0
+offset_top = 632.0
+theme_override_font_sizes/font_size = 23
+theme_override_colors/font_color = Color(1, 0.9, 0.65, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+mouse_filter = 2
+
+[node name="EnemyDirection" type="Label" parent="HUD"]
+offset_left = 900.0
+offset_top = 28.0
+offset_right = 1252.0
+horizontal_alignment = 2
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(1, 0.65, 0.45, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+mouse_filter = 2

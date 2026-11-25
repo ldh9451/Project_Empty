@@ -1,3 +1,31 @@
 {
-  "enabled_classes": ["Sprite2D", "Engine", "OS", "FileAccess", "Image", "WorkerThreadPool", "XMLParser", "SceneTree", "MeshInstance3D", "ArrayMesh", "StandardMaterial3D", "StaticBody3D", "CollisionShape3D", "ConcavePolygonShape3D", "FastNoiseLite", "Camera3D", "Input", "InputEventKey", "InputEventMouseButton", "InputEventMouseMotion", "Viewport"]
+  "enabled_classes": [
+    "Sprite2D",
+    "Engine",
+    "OS",
+    "FileAccess",
+    "Image",
+    "WorkerThreadPool",
+    "XMLParser",
+    "SceneTree",
+    "MeshInstance3D",
+    "ArrayMesh",
+    "StandardMaterial3D",
+    "StaticBody3D",
+    "CollisionShape3D",
+    "ConcavePolygonShape3D",
+    "FastNoiseLite",
+    "Camera3D",
+    "Input",
+    "InputEventKey",
+    "InputEventMouseButton",
+    "InputEventMouseMotion",
+    "Viewport",
+    "BoxMesh",
+    "Label",
+    "InputMap",
+    "AudioStreamPlayer",
+    "AudioStreamWAV",
+    "PackedScene"
+  ]
 }

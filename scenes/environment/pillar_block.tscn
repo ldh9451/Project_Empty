@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scenes/environment/pillar_block_visual.gd" id="1"]
+
+[sub_resource type="StandardMaterial3D" id="Stone"]
+albedo_color = Color(0.58, 0.56, 0.5, 1)
+roughness = 0.95
+
+[sub_resource type="StandardMaterial3D" id="Damaged"]
+albedo_color = Color(0.72, 0.52, 0.3, 1)
+roughness = 0.95
+
+[sub_resource type="StandardMaterial3D" id="Rubble"]
+albedo_color = Color(0.3, 0.32, 0.34, 1)
+roughness = 1.0
+
+[sub_resource type="BoxMesh" id="Block"]
+size = Vector3(0.96, 0.96, 0.96)
+
+[sub_resource type="BoxMesh" id="Crack"]
+size = Vector3(0.045, 0.8, 0.975)
+
+[node name="PillarBlockVisual" type="Node3D" node_paths=PackedStringArray("body", "cracks")]
+script = ExtResource("1")
+body = NodePath("Body")
+cracks = NodePath("Cracks")
+stone = SubResource("Stone")
+damaged = SubResource("Damaged")
+rubble = SubResource("Rubble")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+mesh = SubResource("Block")
+material_override = SubResource("Stone")
+
+[node name="Cracks" type="Node3D" parent="."]
+visible = false
+
+[node name="Split" type="MeshInstance3D" parent="Cracks"]
+rotation_degrees = Vector3(0, 0, 18)
+mesh = SubResource("Crack")
+material_override = SubResource("Rubble")

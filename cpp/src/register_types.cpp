@@ -1,6 +1,7 @@
 #include "cpp_example.h"
 #include "voxel_terrain.h"
 #include "entry_point.h"
+#include "meltdown_arena.h"
 
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/godot.hpp>
@@ -12,6 +13,7 @@ static void initialize_project_h(ModuleInitializationLevel level) {
         GDREGISTER_CLASS(GameInput);
         GDREGISTER_CLASS(GameCamera);
         GDREGISTER_CLASS(EntryPoint);
+        GDREGISTER_CLASS(MeltdownArena);
         GDREGISTER_CLASS(ProjectHCppExample);
         GDREGISTER_CLASS(ProjectHVoxelTerrain);
     }
